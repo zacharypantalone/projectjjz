@@ -1,6 +1,0 @@
-
-
-## Core Features
-
-## Side Features
-
