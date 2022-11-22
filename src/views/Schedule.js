@@ -2,19 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Dashboard() {
-  const [] = useState([
-  ]);
+export default function Schedule() {
+  const [] = useState([]);
 
   useEffect(() => {
-    axios.get(`/dashboard`).then(data => {
+    axios.get(`/schedule`).then(data => {
       console.log();
     });
   }, []);
 
   return (
-    <div id='dashboard-page'>
-      <p>This is the dashboard page</p>
+    <div id='Schedule-page'>
+      <p>This is the Schedule page</p>
     </div>
   );
 }

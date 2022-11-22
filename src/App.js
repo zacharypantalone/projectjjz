@@ -5,14 +5,14 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    axios.get('/db').then(data => {
+    axios.get('/').then(data => {
       console.log(data.data);
     });
   }, []);
 
   return (
     <div className='App'>
-      <h1>Hello World!</h1>
+      <h1>This is the Landing Page!</h1>
     </div>
   );
 }
