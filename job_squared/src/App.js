@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    axios.get('/db-test').then(data => {
+    axios.get('/db').then(data => {
       console.log(data.data);
     });
   }, []);
