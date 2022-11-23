@@ -72,6 +72,9 @@ export default function Quiz() {
 				<div className='score-section'>You scored 1 out of {questions.length}</div>
 			) : (
 				<>
+
+        {/* WE SHOULD CREATE A JSX IF ELSE STATEMENT. IF USER SELECTS REMOTE, THEN RENDER QUESTIONS1 ARRAY.
+        IF USER SEELCTS ON-SITE, RENDER QUESTIONS 2 ARRAY. */}
 					<div className='question-section'>
 						<div className='question-count'>
 							<span>Question 1</span>/{questions.length}
