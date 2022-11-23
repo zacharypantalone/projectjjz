@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useNavigate } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FormField from '../components/FormField';
 
@@ -12,14 +12,14 @@ export default function Register() {
     passwordconfirm: '',
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = event => {
     event.preventDefault();
     const data = {
       user,
     };
-    axios.post('/register', data).then(res => {
-      console.log(res.data[0]);
-    });
+    axios.post('/register', data).then(navigate('/dashboard'));
   };
 
   const handleChange = event => {
@@ -36,7 +36,7 @@ export default function Register() {
       value: user.firstname,
       user,
       handleChange,
-      label: 'First Name',
+      placeholder: 'First Name',
       type: 'text',
     },
     {
@@ -44,7 +44,7 @@ export default function Register() {
       value: user.lastname,
       user,
       handleChange,
-      label: 'Last Name',
+      placeholder: 'Last Name',
       type: 'text',
     },
     {
@@ -52,7 +52,7 @@ export default function Register() {
       value: user.email,
       user,
       handleChange,
-      label: 'Email',
+      placeholder: 'Email',
       type: 'email',
     },
     {
@@ -60,7 +60,7 @@ export default function Register() {
       value: user.password,
       user,
       handleChange,
-      label: 'Password',
+      placeholder: 'Password',
       type: 'password',
     },
     {
@@ -68,7 +68,7 @@ export default function Register() {
       value: user.passwordconfirm,
       user,
       handleChange,
-      label: 'Confirm Password',
+      placeholder: 'Confirm Password',
       type: 'password',
     },
   ];
