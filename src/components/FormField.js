@@ -1,16 +1,15 @@
 export default function FormField(props) {
   return (
-    <div className={props.field}>
-      <label className='form__label'>{props.field}</label>
+    <div className='form-field'>
+      <label>{props.label}</label>
       <input
-        value={props.user.firstname}
+        id={props.id}
+        value={props.value}
         onChange={props.handleChange}
-        type={props.field}
-        id={props.field}
-        className='form__input'
-        placeholder={props.field}
+        placeholder={props.placeholder}
+        type={props.type}
       />
-      {props.user.firstname}
+      {props.value}
     </div>
   );
 }
