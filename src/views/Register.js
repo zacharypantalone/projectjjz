@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useNavigate } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import FormField from '../components/FormField';
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -21,27 +22,18 @@ export default function Register() {
   //   });
   // };
 
+  const handleChange = event => {
+    setUser(prev => ({
+      ...prev,
+      firstname: event.target.value,
+    }));
+  }
+
   return (
     <div id='Register-page'>
       <h1>New here? Register!</h1>
       <form>
-        <div className='firstname'>
-          <label className='form__label'>First Name </label>
-          <input
-            value={user.firstname}
-            onChange={event => {
-              setUser(prev => ({
-                ...prev,
-                firstname: event.target.value,
-              }));
-            }}
-            type='firstname'
-            id='firstname'
-            className='form__input'
-            placeholder='First Name'
-          />
-          {user.firstname}
-        </div>
+        <FormField field="First Name" user={user} handleChange={handleChange} />
         <div className='lastname'>
           <label className='form__label'>Last Name </label>
           <input
