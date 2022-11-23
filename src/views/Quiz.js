@@ -12,6 +12,19 @@ export default function Quiz() {
     });
   }, []);
 
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+
+  const handleAnswerButtonClick = (answerOption) => {
+    const nextQuestion = currentQuestion + 1;
+    setCurrentQuestion(nextQuestion);
+
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      alert("You're all set! Click here to head back to the dashboard for your results");
+    }
+  }
+
   const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -63,13 +76,12 @@ export default function Quiz() {
 						<div className='question-count'>
 							<span>Question 1</span>/{questions.length}
 						</div>
-						<div className='question-text'>This is where the question text should go</div>
+						<div className='question-text'>{questions[currentQuestion].questionText}</div>
 					</div>
 					<div className='answer-section'>
-						<button>Answer 1</button>
-						<button>Answer 2</button>
-						<button>Answer 3</button>
-						<button>Answer 4</button>
+            {questions[currentQuestion].answerOptions.map((answerOptions, index) => (
+              <button onClick={() => handleAnswerButtonClick()}>{answerOptions.answerText}</button>
+            ))}
 					</div>
 				</>
 			)}
