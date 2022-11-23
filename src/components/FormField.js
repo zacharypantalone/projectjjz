@@ -8,7 +8,7 @@ export default function FormField(props) {
         placeholder={props.placeholder}
         type={props.type}
       />
-      {props.value}
+      {/* {props.value} */}
     </div>
   );
 }

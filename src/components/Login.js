@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-import FormField from '../components/FormField';
+import FormField from './FormField';
 
 export default function Login() {
   //TO DO Have yet to implement function
