@@ -74,7 +74,7 @@ export default function Quiz() {
 				<>
 					<div className='question-section'>
 						<div className='question-count'>
-							<span>Question 1</span>/{questions.length}
+							{/*MAYBE WE RENDER OUR LOGO WITHOUT THE NAME OF OUR APP ON TOP OF EACH QUESTION ON THIS LINE*/}
 						</div>
 						<div className='question-text'>{questions[currentQuestion].questionText}</div>
 					</div>
