@@ -20,7 +20,15 @@ function App() {
     }));
   };
 
-  const handleClick = event => {};
+  const handleClick = event => {
+    event.preventDefault();
+    const currentUser = {
+      user,
+    };
+    axios.post('/dashboard', currentUser).then(res => {
+      console.log(res);
+    });
+  };
 
   const formFields = [
     {
