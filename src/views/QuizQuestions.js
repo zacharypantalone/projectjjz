@@ -95,4 +95,3 @@ export const questions2 = [ /*🛑 WE STILL NEED TO FIGURE OUR SECOND MVP IN THI
     ],
   },
 ];
-
