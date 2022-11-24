@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import Login from './components/Login';
 import FormField from './components/FormField';
 
 import './App.css';
@@ -11,6 +11,11 @@ function App() {
     email: '',
     password: '',
   });
+  // const [articles, setArticles] = useState({
+  //   articles: [],
+  // });
+
+  const navigate = useNavigate();
 
   const handleChange = event => {
     const stateValue = event.target.id;
@@ -20,13 +25,15 @@ function App() {
     }));
   };
 
-  const handleClick = event => {
+  const handleLogin = event => {
     event.preventDefault();
     const currentUser = {
       user,
     };
-    axios.post('/dashboard', currentUser).then(res => {
-      console.log(res);
+    axios.post('/login', currentUser).then(res => {
+      console.log(res.data);
+      localStorage.setItem('user', res.data.user);
+      navigate('/dashboard');
     });
   };
 
@@ -66,9 +73,15 @@ function App() {
             />
           );
         })}
-        <button onClick={handleClick}>Login</button>
+        <button onClick={handleLogin}>Login</button>
       </form>
-      <button>Create Account</button>
+      <button
+        onClick={() => {
+          navigate('/register');
+        }}
+      >
+        Create Account
+      </button>
     </div>
   );
 }
