@@ -13,7 +13,7 @@ export const initialQuestion = [
 ]
 
 
-
+// how about this? { remotely: { questions: [] } , on_site: { questions: []} }
 
 
 export const questions1 = [

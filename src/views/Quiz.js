@@ -7,6 +7,8 @@ export default function Quiz() {
   const [quizzes, setQuizzes] = useState([
   ]);
 
+  // ^^ DO WE NEED THIS?
+
   useEffect(() => {
     axios.get(`/quiz`).then(data => {
       console.log();
@@ -17,20 +19,28 @@ export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [isRemote, setIsRemote] = useState(undefined)
   const [questions, setQuestions] = useState([])
+  const [passedInitialQuestion, setPassedInitialQuestion] = useState(false)
 
   const handleAnswerButtonClick = (answerOption) => {
     const nextQuestion = currentQuestion + 1;
     setCurrentQuestion(nextQuestion);
 
-    if (currentQuestion === 0) {
+    // CONSIDER VISUAL MODE HOOK
+
+    if (currentQuestion === 0 && !passedInitialQuestion) {
       console.log(answerOption)
       if (answerOption === "Remotely") {
         setIsRemote(true);
         setQuestions(questions1);
+        setCurrentQuestion(0)
+        setPassedInitialQuestion(true)
+        
 
       } else {
         setIsRemote(false);
         setQuestions(questions2)
+        setCurrentQuestion(0)
+        setPassedInitialQuestion(true)
       }
     } 
     
@@ -40,6 +50,7 @@ export default function Quiz() {
         setCurrentQuestion(nextQuestion);
       } else {
         alert("You're all set! Click here to head back to the dashboard for your results");
+        // AXIOS REQUEST TO DATABASE OF QUIZ RESULTS?
       }
     }
   }
@@ -49,17 +60,16 @@ export default function Quiz() {
 
 	return (
 		<div id='Quiz-page'>
-				{false ? (
-				<div className='score-section'>You scored 1 out of {initialQuestion.length}</div>
-			) : (
-				<>
-        {currentQuestion === 0?
+			
+        {currentQuestion === 0 && !passedInitialQuestion ?
         <div className='answer-section'>
           <div className='question-text'>{initialQuestion[currentQuestion].questionText}</div>
         {initialQuestion[currentQuestion].answerOptions.map((answerOptions, index) => (
           <button onClick={() => handleAnswerButtonClick(answerOptions.answerText)}>{answerOptions.answerText}</button>
         ))}
-      </div> :
+      </div> 
+      
+      :
       
       <div className='answer-section'>
       <div className='question-text'>{questions[currentQuestion].questionText}</div>
@@ -76,8 +86,8 @@ export default function Quiz() {
 						
 					</div>
 					
-				</>
-			)}
+				
+			
 		
 		</div>
 	);
