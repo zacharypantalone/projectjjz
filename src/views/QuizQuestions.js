@@ -1,11 +1,13 @@
 
 
-const initialQuestion = [
+
+
+export const initialQuestion = [
   {
     questionText: "Would you prefer to work on-site or remotely?",
     answerOptions: [
-     {answerText: "On-site", isOnSite},
-     {answerText: "Remotely", isRemote} 
+     {answerText: "On-site", isCorrect: false},
+     {answerText: "Remotely", isCorrect: false} 
     ]
   }
 ]
@@ -14,7 +16,7 @@ const initialQuestion = [
 
 
 
-const questions1 = [
+export const questions1 = [
   {
     questionText: 'What is your strongest skill?',
     answerOptions: [
@@ -46,7 +48,16 @@ const questions1 = [
   },
 ];
 
-const questions2 = [ /*🛑 WE STILL NEED TO FIGURE OUR SECOND MVP ON THIS LINE OF QUESTIONS 🛑*/
+
+
+
+
+
+
+
+
+
+export const questions2 = [ /*🛑 WE STILL NEED TO FIGURE OUR SECOND MVP IN THIS SERIES OF QUESTIONS 🛑*/
   {
     questionText: 'What is the capital of France?',
     answerOptions: [
@@ -84,3 +95,4 @@ const questions2 = [ /*🛑 WE STILL NEED TO FIGURE OUR SECOND MVP ON THIS LINE 
     ],
   },
 ];
+
