@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import FormField from './components/FormField';
+import Logo from './Resources/Logo.svg';
 
 import './App.css';
 
@@ -58,6 +59,12 @@ function App() {
 
   return (
     <div className='App'>
+      <img
+        height={200}
+        width={100}
+        src={Logo}
+        alt='Logo SVG'
+      />
       <h1>This is the Landing Page!</h1>
       <form>
         {formFields.map(field => {
