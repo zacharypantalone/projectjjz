@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Appointment from "components/Appointment";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
+import useApplicationData from "hooks/useApplicationData";
 
 export default function Schedule() {
   const [] = useState([]);
@@ -11,9 +14,50 @@ export default function Schedule() {
     });
   }, []);
 
+ 
+
+  const { state, setDay, bookInterview, cancelInterview } = useApplicationData();
+
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const interviewers = getInterviewersForDay(state, state.day);
+
+  const schedules = dailyAppointments.map((appointment) => {
+    const interview = getInterview(state, appointment.interview);
+
+    return (
+      <Appointment
+        key={appointment.id}
+        {...appointment}
+        interview={interview}
+        interviewers={interviewers}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
+      />
+    );
+  });
+
   return (
-    <div id='Schedule-page'>
-      <p>This is the Schedule page</p>
-    </div>
+    <main className="layout">
+      <section className="sidebar">
+        <img
+          className="sidebar--centered"
+          src="images/logo.png"
+          alt="Interview Scheduler"
+        />
+        <hr className="sidebar__separator sidebar--centered" />
+        <nav className="sidebar__menu">
+          <DayList days={state.days} value={state.day} onChange={setDay} />
+        </nav>
+        <img
+          className="sidebar__lhl sidebar--centered"
+          src="images/lhl.png"
+          alt="Lighthouse Labs"
+        />
+      </section>
+      <section className="schedule">
+        {schedules}
+        <Appointment time="5pm"/>
+      </section>
+    </main>
   );
 }
