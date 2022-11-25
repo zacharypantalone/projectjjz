@@ -3,17 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import FormField from './components/FormField';
+import Logo from './assets/Logo.svg';
 
-import './App.css';
+import './styles/App.css';
+import backgroundImage from './assets/background-image.jpg';
 
 function App() {
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
-  // const [articles, setArticles] = useState({
-  //   articles: [],
-  // });
 
   const navigate = useNavigate();
 
@@ -57,12 +56,23 @@ function App() {
   ];
 
   return (
-    <div className='App'>
-      <h1>This is the Landing Page!</h1>
-      <form>
+    <main className='App'>
+      <img
+        className='background-image'
+        src={backgroundImage}
+      />
+      <img
+        className='Logo'
+        height={200}
+        width={100}
+        src={Logo}
+        alt='Logo SVG'
+      />
+      <form className='login-form'>
         {formFields.map(field => {
           return (
             <FormField
+              className='form-field'
               key={field.id}
               id={field.id}
               value={field.value}
@@ -76,13 +86,14 @@ function App() {
         <button onClick={handleLogin}>Login</button>
       </form>
       <button
+        className='Register'
         onClick={() => {
           navigate('/register');
         }}
       >
         Create Account
       </button>
-    </div>
+    </main>
   );
 }
 
