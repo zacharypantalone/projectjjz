@@ -5,29 +5,51 @@ import { careerList } from '../careerList';
 
 
 export default function Dashboard() {
+  //Quiz results would give you the Career ex. tech
+  const [quizResults, setQuizResults] = useState();
+  //Job would give you the jobs that fall within the Career category ex. creative coding, web dev
+  const [jobs, setJobs] = useState([
+    { job1: '' },
+    { job2: '' },
+    { job3: '' }
+  ]);
 
-  // add conditional rending in dashboard component - axios get quiz, axios get articles
-  // put results into state - render career tiles 
 
   const handleLogoutClick = (event) => {
     event.preventDefault()
-
   }
-  return (
-    careerList.map((career) => {
-      return (
-        <div>
-          <img src={career.img} alt="" width="400" height="300"></img>
-          <h1>{career.title}</h1>
-          <p>{career.body}</p>
-          <button>Career here</button>
-          <div id='dashboard-page'>
-            <p>This is the dashboard page</p>
-            <button type="submit" onClick={handleLogoutClick}>Logout</button>
-          </div>
-        </div>
 
-      )
-    })
+  useEffect(() => {
+    const currentUser = 1
+    axios.get(`/quizresults?userId=${currentUser}`)
+      .then(res => {
+        console.log(res)
+        setJobs(
+          [
+            { job: res.data[0].recommendation_1 },
+            // { title: res.data[0].title}
+            { job: res.data[0].recommendation_2 },
+            { job: res.data[0].recommendation_3 },
+          ])
+      }).then(console.log(jobs))
+  }, []);
+
+
+  return (
+
+
+    <div>
+      {jobs.map(job =>
+        <p>{job.job}</p>
+  // <CareerTile
+        //   key={job.id}
+        //   img={job.img}
+        //   title={job.title}
+        //   body={job.body}
+        // />
+        )}
+    </div>
+
   )
 }
+
