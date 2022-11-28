@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { careerList } from '../careerList';
 import CareerTile from '../components/CareerTile';
 
 import '../styles/Dashboard.css';

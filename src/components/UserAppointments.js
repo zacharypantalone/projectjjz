@@ -12,4 +12,4 @@ const UserAppointments = () => {
   )
 }
 
-export default UserAppointments
+export default UserAppointments;
