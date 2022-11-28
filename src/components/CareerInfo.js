@@ -9,13 +9,13 @@ import { careerList } from '../careerList'
   useEffect(() => {
     axios.get(`/quizresults=`)
     .then(res => {
-      console.log(res)
+      // console.log(res)
       setJob()
     })
   }, []);
 
   const {career} = props;
-  console.log(props)
+  // console.log(props)
       return (
         <article>
           {/* will move this inline styling i promise 

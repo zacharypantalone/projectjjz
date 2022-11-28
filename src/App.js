@@ -29,11 +29,12 @@ function App() {
     const currentUser = {
       user,
     };
-    axios.post('/login', currentUser).then(res => {
-      console.log(res.data);
-      localStorage.setItem('user', res.data.user);
-      navigate('/dashboard');
-    });
+    axios
+      .post('/login', currentUser)
+      .then(res => {
+        console.log(res);
+      })
+      .then(navigate('/dashboard'));
   };
 
   const formFields = [
