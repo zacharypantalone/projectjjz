@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../styles/CareerTile.scss';
 
 
-export default function Dashboard() {
+const CareerTile = () => {
   //Quiz results would give you the Career ex. tech
   const [quizResults, setQuizResults] = useState();
   //Job would give you the jobs that fall within the Career category ex. creative coding, web dev
@@ -58,3 +58,5 @@ export default function Dashboard() {
     </article>
   )
 }
+
+export default CareerTile
