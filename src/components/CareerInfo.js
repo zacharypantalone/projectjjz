@@ -23,5 +23,5 @@ export default function CareerInfo(props) {
           <h4>Relevant Articles: <a href="url">{career.articles}</a></h4>
         </article>
       )
-  
+      
 }
