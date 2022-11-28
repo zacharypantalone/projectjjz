@@ -32,9 +32,13 @@ function App() {
     axios
       .post('/login', currentUser)
       .then(res => {
-        console.log(res);
+        if (res.status === 201) {
+          navigate('/dashboard');
+        }
       })
-      .then(navigate('/dashboard'));
+      .catch(res => {
+        console.log(res.response.data.Message);
+      });
   };
 
   const formFields = [
