@@ -11,7 +11,6 @@ import backgroundImage from './assets/background-image.jpg';
 function App() {
   const [user, setUser] = useState({
     email: '',
-    password: '',
   });
 
   const navigate = useNavigate();
