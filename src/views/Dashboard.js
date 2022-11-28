@@ -10,6 +10,7 @@ import backgroundImage from '../assets/background-image.jpg';
 import Logo from '../assets/Logo.svg';
 
 
+
 const Dashboard = () => {
   return (
     <main>
@@ -36,5 +37,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
-
