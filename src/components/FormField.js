@@ -1,4 +1,4 @@
-export default function FormField(props) {
+const FormField = (props) => {
   return (
     <div className='form-field'>
       <input
@@ -12,3 +12,5 @@ export default function FormField(props) {
     </div>
   );
 }
+
+export default FormField;
