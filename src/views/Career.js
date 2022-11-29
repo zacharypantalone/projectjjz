@@ -5,11 +5,11 @@ import CareerInfo from '../components/CareerInfo';
 import { careerList } from '../careerList';
 
 // Full info on a singular job will render here 
-export default function Career() {
+export default function Career(props) {
   const careerProfile = careerList[0];
   return (
     <div id='careerinfo-page'>
-      <CareerInfo career={careerProfile}/> 
+      <CareerInfo career={props}/> 
     </div>
   );
 }

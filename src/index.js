@@ -12,7 +12,7 @@ import Career from './views/Career';
 
 
 const router = createBrowserRouter([
-  { path: '/', element: <App /> }, // this is login
+  { path: '/', element: <App /> },
   { path: '/register', element: <Register /> },
   { path: '/dashboard', element: <Dashboard /> },
   { path: '/schedule', element: <Schedule /> },

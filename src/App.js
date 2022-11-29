@@ -1,17 +1,15 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import './styles/App.css';
 import FormField from './components/FormField';
 import Logo from './assets/Logo.svg';
-
-import './styles/App.css';
 import backgroundImage from './assets/background-image.jpg';
 
 function App() {
   const [user, setUser] = useState({
     email: '',
-    password: '',
   });
 
   const navigate = useNavigate();
@@ -29,11 +27,16 @@ function App() {
     const currentUser = {
       user,
     };
-    axios.post('/login', currentUser).then(res => {
-      console.log(res.data);
-      localStorage.setItem('user', res.data.user);
-      navigate('/dashboard');
-    });
+    axios
+      .post('/login', currentUser)
+      .then(res => {
+        if (res.status === 201) {
+          navigate('/dashboard');
+        }
+      })
+      .catch(res => {
+        console.log(res.response.data.Message);
+      });
   };
 
   const formFields = [
