@@ -5,14 +5,8 @@ import '../styles/CareerTile.scss';
 import { useNavigate } from 'react-router';
 
 const CareerTile = () => {
-  //Quiz results would give you the Career ex. tech
-  const [quizResults, setQuizResults] = useState();
   //Job would give you the jobs that fall within the Career category ex. creative coding, web dev
   const [jobs, setJobs] = useState([{ job1: '' }, { job2: '' }, { job3: '' }]);
-
-  // const handleLogoutClick = (event) => {
-  //   event.preventDefault()
-  // }
 
   const navigate = useNavigate();
 
@@ -21,6 +15,7 @@ const CareerTile = () => {
     axios.get(`/quizresults`).then(res => {
       console.log(res.data[0])
       setJobs([
+        // Will this be an issue?****** ask mentor
         {job1: res.data[0].title},
         {job1: res.data[0].img},
         {job1: res.data[0].body},
@@ -32,8 +27,8 @@ const CareerTile = () => {
         {job3: res.data[2].body},
       ]);
     });
-    // .then(console.log(jobs))
   }, []);
+
 
   return (
     <article className='career-tiles'>
@@ -42,7 +37,7 @@ const CareerTile = () => {
           <p>{job.job1}</p>
         ))}
         <button onClick={() => {
-          navigate('/career');
+          navigate('/career/1');
         }}>Click here for more info!
         </button>
       </div>
@@ -51,7 +46,7 @@ const CareerTile = () => {
           <p>{job.job2}</p>
         ))}
             <button onClick={() => {
-          navigate('/career');
+          navigate('/career/2');
         }}>Click here for more info!
         </button>
       </div>
@@ -60,7 +55,7 @@ const CareerTile = () => {
           <p>{job.job3}</p>
         ))}
             <button onClick={() => {
-          navigate('/career');
+          navigate('/career/3');
         }}>Click here for more info!
         </button>
       </div>

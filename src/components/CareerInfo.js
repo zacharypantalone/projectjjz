@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { careerList } from '../careerList'
+import { useParams } from 'react-router-dom';
 
 
- const CareerInfo = (props) => {
+
+ const CareerInfo = () => {
   const [job, setJob] = useState();
 
-  useEffect(() => {
-    axios.get(`/quizresults=`)
-    .then(res => {
-      // console.log(res)
-      setJob()
-    })
-  }, []);
+  // useEffect(() => {
+  //   const currentJob = job
+  //   axios.get(`/careerinfo${currentJob}`).then(res => {
+  //     console.log(res.data[0])
+  //     setJob([
+  //       {job: res.data[0].title}
+  //     ])
+  //   })
+    
+  // }, []);
+  // const { jobId } = useParams(); 
+  // useEffect(() => {
+  //   alert(jobId);
+  // }, [])
 
-  const {career} = props;
-  // console.log(props)
+
       return (
         <article>
+          {/* <h1>{job}</h1> */}
           {/* will move this inline styling i promise 
           <img src={career.img} alt="" width="400" height="300"/>
           <h1>{career.title}</h1>
