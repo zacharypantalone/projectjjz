@@ -1,11 +1,10 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import './styles/App.css';
 import FormField from './components/FormField';
 import Logo from './assets/Logo.svg';
-
-import './styles/App.css';
 import backgroundImage from './assets/background-image.jpg';
 
 function App() {
