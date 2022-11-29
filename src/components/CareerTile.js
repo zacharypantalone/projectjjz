@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import '../styles/CareerTile.scss';
+import { useNavigate } from 'react-router';
 
 const CareerTile = () => {
   //Quiz results would give you the Career ex. tech
@@ -13,15 +14,22 @@ const CareerTile = () => {
   //   event.preventDefault()
   // }
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    const currentUser = 1;
-    axios.get(`/quizresults?userId=${currentUser}`).then(res => {
-      // console.log(res)
+    
+    axios.get(`/quizresults`).then(res => {
+      console.log(res.data[0])
       setJobs([
-        { job1: res.data[0].recommendation_1 },
-        // { title: res.data[0].title}
-        { job2: res.data[0].recommendation_2 },
-        { job3: res.data[0].recommendation_3 },
+        {job1: res.data[0].title},
+        {job1: res.data[0].img},
+        {job1: res.data[0].body},
+        {job2: res.data[1].title},
+        {job2: res.data[1].img},
+        {job2: res.data[1].body},
+        {job3: res.data[2].title},
+        {job3: res.data[2].img},
+        {job3: res.data[2].body},
       ]);
     });
     // .then(console.log(jobs))
@@ -33,19 +41,28 @@ const CareerTile = () => {
         {jobs.map(job => (
           <p>{job.job1}</p>
         ))}
-        <button>Click here for more info!</button>
+        <button onClick={() => {
+          navigate('/career');
+        }}>Click here for more info!
+        </button>
       </div>
       <div className='career-tile'>
         {jobs.map(job => (
           <p>{job.job2}</p>
         ))}
-        <button>Click here for more info!</button>
+            <button onClick={() => {
+          navigate('/career');
+        }}>Click here for more info!
+        </button>
       </div>
       <div className='career-tile'>
         {jobs.map(job => (
-          <p>{job.job1}</p>
+          <p>{job.job3}</p>
         ))}
-        <button>Click here for more info!</button>
+            <button onClick={() => {
+          navigate('/career');
+        }}>Click here for more info!
+        </button>
       </div>
     </article>
   );
