@@ -9,7 +9,7 @@ import Dashboard from './views/Dashboard';
 import Schedule from './views/Schedule';
 import Quiz from './views/Quiz';
 import Career from './views/Career';
-import CareerInfo from './components/CareerInfo';
+
 
 
 const router = createBrowserRouter([

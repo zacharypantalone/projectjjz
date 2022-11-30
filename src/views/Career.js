@@ -7,37 +7,36 @@ import backgroundImage from '../assets/background-image.jpg';
 
 export default function Career() {
 
-  const [career, setCareer] = useState([]);
+  const [career, setCareer] = useState({});
 
   const { jobId } = useParams();
-  useEffect(() => {
-    axios
-      .get(`/careerinfo/${jobId}`)
-      .then(res => {
-        setCareer(res.data)
-      })
 
-  }, [])
+
+  useEffect(() => {
+    axios.get(`/careerinfo/${jobId}`).then(res => {setCareer(res.data)} )
+  }, [] )
 
   console.log("HERE", career)
   return (
     <div>
-            <img
+        <img
         className='background-image'
         src={backgroundImage}
       />
       <article>
-      <img src={career.img} alt="img" width={400}></img>
-      <div style={{ color: "white" }}>{career.title}</div>
-      <div style={{ color: "white" }}>{career.body}</div>
-      <div style={{ color: "white" }}>Average Salary: {career.average_salary}</div>
-      <div style={{ color: "white" }}>Salary Range: {career.salary_range}</div>
-      <div style={{ color: "white" }}>Training Needed: {career.training}</div>
-      <div style={{ color: "white" }}>Necissary Skills: {career.skills}</div>
+      {Object.keys(career).length !==0 && <div>
+      <img src={career.job.img} alt="img" width={400}/> 
+      <div style={{ color: "white" }}>{career.job.title}</div>
+      <div style={{ color: "white" }}>{career.job.body}</div>
+      <div style={{ color: "white" }}>Average Salary: {career.job.average_salary}</div>
+      <div style={{ color: "white" }}>Salary Range: {career.job.salary_range}</div>
+      <div style={{ color: "white" }}>Training Needed: {career.job.training}</div>
+      <div style={{ color: "white" }}>Necessary Skills: {career.job.skills}</div>
       <h3>Learning Links:</h3>
-      <a href="url">{career.learning_links}</a>
+       <a href="url">{career.learning_links}</a> 
       <h3>Related: </h3>
-      <a href="url">{career.articles}</a>
+      <a href="url">{career.job.article}</a>
+      </div>}
       </article>
     </div>
   );
