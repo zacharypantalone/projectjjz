@@ -32,10 +32,14 @@ export default function Career() {
       <div style={{ color: "white" }}>Salary Range: {career.job.salary_range}</div>
       <div style={{ color: "white" }}>Training Needed: {career.job.training}</div>
       <div style={{ color: "white" }}>Necessary Skills: {career.job.skills}</div>
+      <h3>Related Articles: </h3>
+      {career.article.map((article) => (
+        <a href={article.article}>{article.article}</a>
+      ))}
       <h3>Learning Links:</h3>
-       <a href="url">{career.learning_links}</a> 
-      <h3>Related: </h3>
-      <a href="url">{career.job.article}</a>
+      {career.learning.map((learning) => (
+        <a href={learning.learning}>{learning.learning}</a>
+      ))}
       </div>}
       </article>
     </div>
