@@ -9,6 +9,7 @@ import Dashboard from './views/Dashboard';
 import Schedule from './views/Schedule';
 import Quiz from './views/Quiz';
 import Career from './views/Career';
+import CareerInfo from './components/CareerInfo';
 
 
 const router = createBrowserRouter([
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   { path: '/dashboard', element: <Dashboard /> },
   { path: '/schedule', element: <Schedule /> },
   { path: '/quiz', element: <Quiz /> },
-  { path: '/career', element: <Career /> },
+  { path: '/career/:jobId', element: <Career /> }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
