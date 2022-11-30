@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import CareerTile from '../components/CareerTile';
+import QuizResults from '../components/QuizResults';
+import QuizNotTaken from '../components/QuizNotTaken';
 
 import '../styles/Dashboard.css';
-// import UserAppointments from '../components/UserAppointments';
 import backgroundImage from '../assets/background-image.jpg';
 
 const Dashboard = () => {
@@ -26,8 +26,7 @@ const Dashboard = () => {
   const handleLogout = event => {
     event.preventDefault();
     axios
-      .post('/logout', res => {
-      })
+      .post('/logout', res => {})
       .then(res => {
         if (res.status === 200) {
           navigate('/');
@@ -42,7 +41,7 @@ const Dashboard = () => {
     <main>
       <div className='dashboard'>
         <h1>Hi {user}!</h1>
-        {results ? <CareerTile /> : <div></div>}
+        {results ? <QuizResults /> : <QuizNotTaken />}
       </div>
       <img
         className='background-image'

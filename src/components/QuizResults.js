@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import '../styles/CareerTile.scss';
+import '../styles/QuizResults.scss';
 import { useNavigate } from 'react-router';
 
-const CareerTile = () => {
+const QuizResults = () => {
   const [jobs, setJobs] = useState([]);
 
   const navigate = useNavigate();
@@ -17,6 +17,11 @@ const CareerTile = () => {
       );
     });
   }, []);
+
+  const handleRetake = () => {
+    axios.delete('/quizresults')
+    .then(navigate('/dashboard'))
+  }
 
   return (
     <article className='career-tiles'>
@@ -35,8 +40,12 @@ const CareerTile = () => {
           </button>
         </div>
       ))}
+      <div>
+        <p>If you would like to retake the quiz for any reason you can click below</p>
+        <button type='button' onClick={handleRetake}>Retake Quiz</button>
+      </div>
     </article>
   );
 };
 
-export default CareerTile;
+export default QuizResults;
