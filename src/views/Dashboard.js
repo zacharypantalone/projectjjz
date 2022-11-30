@@ -16,10 +16,14 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios.get('/quizresults').then(res => {
-      setResults(res.data);
+      if (res.data) {
+        setResults(res.data);
+      }
     });
     axios.get('/user').then(res => {
-      setUser(res.data.first_name);
+      if (res.data.first_name) {
+        setUser(res.data.first_name);
+      }
     });
   }, []);
 
@@ -41,7 +45,7 @@ const Dashboard = () => {
     <main>
       <div className='dashboard'>
         <h1>Hi {user}!</h1>
-        {results ? <QuizResults /> : <QuizNotTaken />}
+        {results.length > 0 ? <QuizResults /> : <QuizNotTaken />}
       </div>
       <img
         className='background-image'
