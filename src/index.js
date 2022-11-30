@@ -11,7 +11,6 @@ import Quiz from './views/Quiz';
 import Career from './views/Career';
 
 
-
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
   { path: '/register', element: <Register /> },
