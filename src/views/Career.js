@@ -1,41 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import CareerInfo from '../components/CareerInfo';
-import { careerList } from '../careerList';
 
-// Full info on a singular job will render here 
-export default function Career(props) {
-  
-  const [career, setCareer] = useState({});
+import backgroundImage from '../assets/background-image.jpg';
 
-  const { jobId } = useParams(); 
+
+export default function Career() {
+
+  const [career, setCareer] = useState([]);
+
+  const { jobId } = useParams();
   useEffect(() => {
-    // alert(jobId);
     axios
-    .get(`/careerinfo/${jobId}`)
-    .then(res => {
-      console.log("********");
-      console.log(res.data);
-      setCareer(res.data)
-    })
+      .get(`/careerinfo/${jobId}`)
+      .then(res => {
+        setCareer(res.data)
+      })
 
   }, [])
 
-  // const careerProfile = careerList[0];
+  console.log("HERE", career)
   return (
     <div>
-    <div style={{color: "red"}}>{career.img}</div>
-      <div style={{color: "red"}}>{career.title}</div>
-      <div style={{color: "red"}}>{career.body}</div>
-      <div style={{color: "red"}}>{career.average_salary}</div>
-      <div style={{color: "red"}}>{career.salary_range}</div>
-      <div style={{color: "red"}}>{career.training}</div>
-      <div style={{color: "red"}}>{career.skills}</div>
-      <div style={{color: "red"}}>{career.learning_links}</div>
-      <div style={{color: "red"}}>{career.articles}</div>
-
-      {/* <CareerInfo career={props}/>  */}
+            <img
+        className='background-image'
+        src={backgroundImage}
+      />
+      <article>
+      <img src={career.img} alt="img" width={400}></img>
+      <div style={{ color: "white" }}>{career.title}</div>
+      <div style={{ color: "white" }}>{career.body}</div>
+      <div style={{ color: "white" }}>Average Salary: {career.average_salary}</div>
+      <div style={{ color: "white" }}>Salary Range: {career.salary_range}</div>
+      <div style={{ color: "white" }}>Training Needed: {career.training}</div>
+      <div style={{ color: "white" }}>Necissary Skills: {career.skills}</div>
+      <h3>Learning Links:</h3>
+      <a href="url">{career.learning_links}</a>
+      <h3>Related: </h3>
+      <a href="url">{career.articles}</a>
+      </article>
     </div>
   );
 }
