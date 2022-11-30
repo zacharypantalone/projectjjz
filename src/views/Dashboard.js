@@ -14,7 +14,10 @@ const Dashboard = () => {
   const [results, setResults] = useState([]);
   const [user, setUser] = useState();
 
+  console.log('log before useeffect');
+  
   useEffect(() => {
+    console.log('log within useeffect');
     axios.get('/quizresults').then(res => {
       if (res.data) {
         setResults(res.data);
