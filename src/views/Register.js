@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FormField from '../components/FormField';
+import backgroundImage from '../assets/background-image.jpg';
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -76,6 +77,10 @@ export default function Register() {
 
   return (
     <div id='Register-page'>
+            <img
+        className='background-image'
+        src={backgroundImage}
+      />
       <h1>New here? Register!</h1>
       <form>
         {formFields.map(field => {

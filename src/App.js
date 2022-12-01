@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import './styles/App.css';
+import './styles/App.scss';
 import './styles/Button.scss'
 import FormField from './components/FormField';
 import Logo from './assets/Logo.svg';
