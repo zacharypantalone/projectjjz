@@ -1,0 +1,22 @@
+
+  button {
+    background-color: transparent ;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    transition: 1s;
+  }
+
+
+  button:hover,
+  button:focus {
+    color: black;
+    box-shadow: inset 11em 0 0 0 white;
+    transition: 1s;
+  }
