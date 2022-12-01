@@ -14,10 +14,7 @@ const Dashboard = () => {
   const [results, setResults] = useState([]);
   const [user, setUser] = useState();
 
-  console.log('log before useeffect');
-
   useEffect(() => {
-    console.log('log within useeffect');
     Promise.all([axios.get('/quizresults'), axios.get('/user')]).then(res => {
       if (res[0].data) {
         setResults(res[0].data);
