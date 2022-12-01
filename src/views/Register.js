@@ -19,7 +19,8 @@ export default function Register() {
     const data = {
       user,
     };
-    axios.post('/register', data).then(navigate('/dashboard'));
+    axios.post('/register', data)
+    .then(() => {navigate('/dashboard')});
   };
 
   const handleChange = event => {
