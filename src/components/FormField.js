@@ -11,7 +11,6 @@ const FormField = (props) => {
         placeholder={props.placeholder}
         type={props.type}
       />
-      {props.value}
     </div>
   );
 }

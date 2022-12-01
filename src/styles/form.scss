@@ -1,12 +1,10 @@
 input{
   font-family: "Inter";
-  background-color: rgb(162, 160, 160) ;
   opacity: 30%;
   border-radius: 16px;
   padding: 8px 20px;
   border: none;
   margin: .5em;
-  color: white;
   text-align: center;
   transition: 1s;
   outline: none;
@@ -14,6 +12,7 @@ input{
 
 input:focus {
   opacity: 50%;
+  background-color: #616554;
   transition: 1s;
 }
 
