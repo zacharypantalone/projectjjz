@@ -27,7 +27,10 @@ const QuizResults = () => {
       </h3>
       <h3>Here are the results from your last quiz</h3>
       {jobs.map((job, index) => (
-        <div className='career-tile'>
+        <div
+          className='career-tile'
+          key={job.title}
+        >
           <div>
             <img
               src={job.img}
