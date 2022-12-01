@@ -10,18 +10,14 @@ const QuizResults = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-
     axios.get(`/quizresults`).then(res => {
-      setJobs(
-        res.data
-      );
+      setJobs(res.data);
     });
   }, []);
 
   const handleRetake = () => {
-    axios.delete('/quizresults')
-    .then(navigate('/dashboard'))
-  }
+    axios.delete('/quizresults').then(navigate('/quiz'));
+  };
 
   return (
     <article className='career-tiles'>
@@ -41,8 +37,16 @@ const QuizResults = () => {
         </div>
       ))}
       <div>
-        <p>If you would like to retake the quiz for any reason you can click below</p>
-        <button type='button' onClick={handleRetake}>Retake Quiz</button>
+        <p>
+          If you would like to retake the quiz for any reason you can click
+          below
+        </p>
+        <button
+          type='button'
+          onClick={handleRetake}
+        >
+          Retake Quiz
+        </button>
       </div>
     </article>
   );

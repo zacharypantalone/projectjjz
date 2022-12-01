@@ -42,7 +42,7 @@ function App() {
   const formFields = [
     {
       id: 'email',
-      value: user.email,
+      value: user.email || '',
       user,
       handleChange,
       placeholder: 'Email',
@@ -50,7 +50,7 @@ function App() {
     },
     {
       id: 'password',
-      value: user.password,
+      value: user.password || '',
       user,
       handleChange,
       placeholder: 'Password',

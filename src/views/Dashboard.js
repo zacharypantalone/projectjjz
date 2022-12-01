@@ -15,14 +15,12 @@ const Dashboard = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    axios.get('/quizresults').then(res => {
-      if (res.data) {
-        setResults(res.data);
+    Promise.all([axios.get('/quizresults'), axios.get('/user')]).then(res => {
+      if (res[0].data) {
+        setResults(res[0].data);
       }
-    });
-    axios.get('/user').then(res => {
-      if (res.data.first_name) {
-        setUser(res.data.first_name);
+      if (res[1].data.first_name) {
+        setUser(res[1].data.first_name);
       }
     });
   }, []);
