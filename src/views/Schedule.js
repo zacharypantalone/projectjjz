@@ -12,12 +12,19 @@ export default function Schedule() {
     axios.get(`/quizresults`).then(res => {
       setquizResults(res.data);
     });
+    axios.get(`/mentors`).then(res => {
+      setMentors(res.data);
+    });
   }, []);
 
-  const careerClick = (e) => {
-    e.preventDefault();
-    axios.get('/mentors')
-  }
+  console.log(quizResults);
+  console.log(mentors);
+
+  const careerClick = id => {
+    const filteredMentors = mentors.filter(x => {
+      return x.job_id === id;
+    });
+  };
 
   return (
     <div id='schedule'>
@@ -27,15 +34,25 @@ export default function Schedule() {
         alt='background'
       />
       <section className='career-recommendations'>
-        <h3>Select one of your career recommendations to see the available mentors to chat with</h3>
+        <h3>
+          Select one of your career recommendations to see the available mentors
+          to chat with
+        </h3>
         <section className='career-buttons'>
-        {quizResults.length > 0 ? (
-          quizResults.map(result => {
-            return <button key={result.title} onClick={careerClick}>{result.title}</button>;
-          })
-        ) : (
-          <p>No Quiz Results found</p>
-        )}
+          {quizResults.length > 0 ? (
+            quizResults.map(result => {
+              return (
+                <button
+                  key={result.title}
+                  onClick={() => careerClick(result.id)}
+                >
+                  {result.title}
+                </button>
+              );
+            })
+          ) : (
+            <p>No Quiz Results found</p>
+          )}
         </section>
       </section>
     </div>
