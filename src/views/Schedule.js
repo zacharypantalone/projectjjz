@@ -32,6 +32,7 @@ export default function Schedule() {
 
   return (
     <div id='schedule'>
+      <h1>Schedule</h1>
       <img
         className='background-image'
         src={backgroundImage}
@@ -63,12 +64,15 @@ export default function Schedule() {
             filteredMentors.map(result => {
               return (
                 <section className='mentor-tile'>
-                  <img src={result.headshot} />
+                  <img className='mentor-headshot' src={result.headshot} />
                   <p>{result.blurb}</p>
+                  <button>Book a chat with {result.first_name}</button>
                 </section>
-              )
+              );
             })
-          ) : (<p>No Mentors Found</p>)}
+          ) : (
+            <p>No Mentors Found</p>
+          )}
         </section>
       </section>
     </div>

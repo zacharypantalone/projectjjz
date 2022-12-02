@@ -19,7 +19,7 @@ $primary-font: Inter;
 button:hover,
 button:focus {
   color: black;
-  box-shadow: inset 13em 0 0 0 white;
+  box-shadow: inset 100rem 0 0 0 white;
   transition: 1s;
 }
 }
@@ -33,6 +33,12 @@ button:focus {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+@mixin paragraph-style {
+  font-family: Inter, sans-serif;
+  color: white;
+  font-weight: 600;
 }
 
 $tile-color: #616554;

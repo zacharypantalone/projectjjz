@@ -21,6 +21,7 @@ button {
 
 .career-recommendations {
   width: 800px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -35,8 +36,31 @@ button {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
 }
+
+.mentor-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.mentor-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  height: 350px;
+}
+
+.mentor-headshot {
+  border-radius: 15px;
+  height: 75px;
+}
+
+p {
+  @include base.paragraph-style
+}
+
 
 
 
