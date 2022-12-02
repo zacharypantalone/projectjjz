@@ -7,6 +7,7 @@ import backgroundImage from '../assets/background-image.jpg';
 export default function Schedule() {
   const [quizResults, setquizResults] = useState({});
   const [mentors, setMentors] = useState({});
+  const [filteredMentors, setfilteredMentors] = useState({});
 
   useEffect(() => {
     axios.get(`/quizresults`).then(res => {
@@ -17,14 +18,17 @@ export default function Schedule() {
     });
   }, []);
 
-  console.log(quizResults);
-  console.log(mentors);
+  // console.log(quizResults);
+  // console.log(mentors);
 
   const careerClick = id => {
     const filteredMentors = mentors.filter(x => {
       return x.job_id === id;
     });
+    setfilteredMentors(filteredMentors);
   };
+
+  // console.log(filteredMentors);
 
   return (
     <div id='schedule'>
@@ -53,6 +57,18 @@ export default function Schedule() {
           ) : (
             <p>No Quiz Results found</p>
           )}
+        </section>
+        <section className='mentor-list'>
+          {filteredMentors.length > 0 ? (
+            filteredMentors.map(result => {
+              return (
+                <section className='mentor-tile'>
+                  <img src={result.headshot} />
+                  <p>{result.blurb}</p>
+                </section>
+              )
+            })
+          ) : (<p>No Mentors Found</p>)}
         </section>
       </section>
     </div>
