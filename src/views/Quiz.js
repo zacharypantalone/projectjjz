@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Quiz.scss';
-import '../styles/index.css';
+import '../styles/index.scss';
 import backgroundImage from '../assets/background-image.jpg';
 import QuizItem from './QuizItem';
 

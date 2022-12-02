@@ -44,7 +44,7 @@ const Dashboard = () => {
   return (
     <main>
       <div className='dashboard'>
-        <h1>Hi {user}!</h1>
+        <h1>Welcome {user}!</h1>
         {results.length > 0 ? <QuizResults /> : <QuizNotTaken />}
       </div>
       <img

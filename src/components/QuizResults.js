@@ -19,13 +19,15 @@ const QuizResults = () => {
     axios.delete('/quizresults').then(navigate('/quiz'));
   };
 
-  return (
-    <article className='career-tiles'>
-      <h3>
-        Now that you have taken our quiz you're one step closer to a better
-        future!
-      </h3>
-      <h3>Here are the results from your last quiz</h3>
+  return (      
+  <article>
+  <h3>
+    Now that you have taken our quiz you're one step closer to a better
+    future!
+  </h3>
+  <h3>Here are the results from your last quiz</h3>
+    <div className='career-tiles'>
+    
       {jobs.map((job, index) => (
         <div className='career-tile'>
           <div>
@@ -46,11 +48,12 @@ const QuizResults = () => {
           </button>
         </div>
       ))}
-      <div>
-        <p>
+    </div>
+    <div>
+        <h3 className='quiz-retake-prompt'>
           If you would like to retake the quiz for any reason you can click
           below
-        </p>
+        </h3>
         <button
           type='button'
           onClick={handleRetake}
