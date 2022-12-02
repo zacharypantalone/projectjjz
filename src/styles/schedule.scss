@@ -11,7 +11,6 @@
   align-items: center;
 }
 
-
 .background-image {
   @include base.background-image
 }
@@ -19,6 +18,26 @@
 button {
   @include base.button
 }
+
+.career-recommendations {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 75px;
+}
+
+.career-buttons {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
 
 
 
