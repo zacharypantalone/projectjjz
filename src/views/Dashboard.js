@@ -5,7 +5,7 @@ import axios from 'axios';
 import QuizResults from '../components/QuizResults';
 import QuizNotTaken from '../components/QuizNotTaken';
 
-import '../styles/Dashboard.css';
+import '../styles/Dashboard.scss';
 import backgroundImage from '../assets/background-image.jpg';
 
 const Dashboard = () => {

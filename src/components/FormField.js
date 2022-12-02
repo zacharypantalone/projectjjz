@@ -4,7 +4,7 @@ import '../styles/form.scss';
 const FormField = (props) => {
   return (
     <div className='form-field'>
-      <input
+      <input autoComplete='off'
         id={props.id}
         value={props.value}
         onChange={props.handleChange}
