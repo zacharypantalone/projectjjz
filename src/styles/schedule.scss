@@ -1,0 +1,24 @@
+@use 'base';
+
+#schedule {
+  font-family: $primary-font;
+}
+
+.background-image {
+  @include background-image
+}
+
+button {
+  @include button
+}
+
+
+
+
+
+
+
+
+
+
+

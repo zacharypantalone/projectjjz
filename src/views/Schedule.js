@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+import backgroundImage from '../assets/background-image.jpg';
+
 export default function Schedule() {
-  const [] = useState([]);
+  const [quizResults, setquizResults] = useState({});
 
   useEffect(() => {
-    axios.get(`/schedule`).then(data => {
-      console.log();
+    axios.get(`/quizresults`).then(res => {
+      setquizResults(res.data);
     });
   }, []);
 
+  console.log(quizResults);
   return (
-    <div id='Schedule-page'>
-      <p>This is the Schedule page</p>
+    <div id='schedule'>
+      <img
+        className='background-image'
+        src={backgroundImage}
+        alt='background'
+      />
+      <section class="career-buttons">
+        {quizResults.map(result => {
+          return <button>{result.title}</button>;
+        })}
+      </section>
     </div>
   );
 }
