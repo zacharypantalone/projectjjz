@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import '../styles/schedule.scss';
 import backgroundImage from '../assets/background-image.jpg';
 
 export default function Schedule() {
@@ -12,7 +13,6 @@ export default function Schedule() {
     });
   }, []);
 
-  console.log(quizResults);
   return (
     <div id='schedule'>
       <img
@@ -20,10 +20,14 @@ export default function Schedule() {
         src={backgroundImage}
         alt='background'
       />
-      <section class="career-buttons">
-        {quizResults.map(result => {
-          return <button>{result.title}</button>;
-        })}
+      <section className='career-buttons'>
+        {quizResults.length > 0 ? (
+          quizResults.map(result => {
+            return <button key={result.title}>{result.title}</button>;
+          })
+        ) : (
+          <p>No Quiz Results found</p>
+        )}
       </section>
     </div>
   );

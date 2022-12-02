@@ -1,16 +1,25 @@
 @use 'base';
 
 #schedule {
-  font-family: $primary-font;
+  font-family: base.$primary-font;
+  height: 100vh;
+  width: 100vw;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+
 .background-image {
-  @include background-image
+  @include base.background-image
 }
 
 button {
-  @include button
+  @include base.button
 }
+
 
 
 
