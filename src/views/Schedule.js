@@ -9,13 +9,7 @@ export default function Schedule() {
   const [mentors, setMentors] = useState({});
   const [filteredMentors, setfilteredMentors] = useState({});
   const [currentMentor, setcurrentMentor] = useState('');
-  const [day, setDay] = useState([
-    { Day: 'Monday' },
-    { Day: 'Tuesday' },
-    { Day: 'Wednesday' },
-    { Day: 'Thursday' },
-    { Day: 'Friday' },
-  ]);
+  const [day, setDay] = useState([]);
   const [time, setTime] = useState([
     { Time: '9am' },
     { Time: '10am' },
@@ -31,10 +25,14 @@ export default function Schedule() {
     axios.get(`/mentors`).then(res => {
       setMentors(res.data);
     });
+    axios.get('/days').then(res => {
+      setDay(res.data);
+    });
+    axios.get('/times').then(res => {
+      console.log(res.data);
+      setTime(res.data);
+    });
   }, []);
-
-  // console.log(quizResults);
-  // console.log(mentors);
 
   const careerClick = id => {
     const filteredMentors = mentors.filter(x => {
@@ -44,15 +42,10 @@ export default function Schedule() {
   };
 
   const mentorClick = (id, name) => {
-    console.log(name);
     setcurrentMentor(name);
   };
 
-  const dayClick = () => {
-
-  }
-
-  console.log(filteredMentors);
+  const dayClick = () => {};
 
   return (
     <div id='schedule'>
@@ -64,8 +57,7 @@ export default function Schedule() {
       />
       <section className='career-recommendations'>
         <h3>
-          Select one of your career recommendations to see the available mentors
-          to chat with
+          Select a career to see which mentors are available to chat with
         </h3>
         <section className='career-buttons'>
           {quizResults.length > 0 ? (
@@ -103,29 +95,32 @@ export default function Schedule() {
                 </section>
               );
             })
-          ) : (
-            <p>No Mentors Found</p>
-          )}
+          ) : ''}
         </section>
       </section>
+      {!filteredMentors.length > 0 ? <h3>No Career Selected</h3> :
       <section id='schedule-tile'>
-        <h3>{currentMentor}'s Availability</h3>
+        {currentMentor.length > 0 ? <h3>{currentMentor}'s Availability</h3> : <h3>Select a Mentor to see their Availability</h3>}
         <section className='day-and-time'>
           <section className='day-tiles'>
             {day.map(x => {
-              return <button 
-              onClick={dayClick} className='day-tile secondary-button'>
-                {x.Day}
-              </button>;
+              return (
+                <button
+                  onClick={dayClick}
+                  className='day-tile secondary-button'
+                >
+                  {x.day}
+                </button>
+              );
             })}
           </section>
           <section className='time-tiles'>
             {time.map(x => {
-              return <div className='time-tile'>{x.Time}</div>;
+              return <div className='time-tile'>{x.time}</div>;
             })}
           </section>
         </section>
-      </section>
+      </section>}
     </div>
   );
 }

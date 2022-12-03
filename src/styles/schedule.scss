@@ -105,6 +105,23 @@ p {
   height: 600px;
 }
 
+
+.secondary-button {
+  border-radius: 0px;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  transition: 4s;
+  font: 400 25px Inter, sans-serif;
+}
+
+.secondary-button:hover,
+.secondary-button:focus {
+  color: black;
+  box-shadow: inset 30rem 0 0 0 white;
+  transition: 4s;
+}
+
 .day-tiles {
   width: 200px;
   height: 600px;
@@ -113,22 +130,6 @@ p {
   justify-content: flex-start;
   border-radius: 10px;
   color: white;
-  font: 400 25px Inter, sans-serif;
-}
-
-.secondary-button {
-  border-radius: 0px;
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
-  transition: 4s;
-}
-
-.secondary-button:hover,
-.secondary-button:focus {
-color: black;
-box-shadow: inset 30rem 0 0 0 white;
-transition: 4s;
 }
 
 .day-tile {
