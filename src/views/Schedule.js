@@ -8,6 +8,21 @@ export default function Schedule() {
   const [quizResults, setquizResults] = useState({});
   const [mentors, setMentors] = useState({});
   const [filteredMentors, setfilteredMentors] = useState({});
+  const [currentMentor, setcurrentMentor] = useState('');
+  const [day, setDay] = useState([
+    { Day: 'Monday' },
+    { Day: 'Tuesday' },
+    { Day: 'Wednesday' },
+    { Day: 'Thursday' },
+    { Day: 'Friday' },
+  ]);
+  const [time, setTime] = useState([
+    { Time: '9am' },
+    { Time: '10am' },
+    { Time: '11am' },
+    { Time: '12pm' },
+    { Time: '1pm' },
+  ]);
 
   useEffect(() => {
     axios.get(`/quizresults`).then(res => {
@@ -28,7 +43,16 @@ export default function Schedule() {
     setfilteredMentors(filteredMentors);
   };
 
-  // console.log(filteredMentors);
+  const mentorClick = (id, name) => {
+    console.log(name);
+    setcurrentMentor(name);
+  };
+
+  const dayClick = () => {
+
+  }
+
+  console.log(filteredMentors);
 
   return (
     <div id='schedule'>
@@ -49,6 +73,7 @@ export default function Schedule() {
               return (
                 <button
                   key={result.title}
+                  className='main-button'
                   onClick={() => careerClick(result.id)}
                 >
                   {result.title}
@@ -64,15 +89,41 @@ export default function Schedule() {
             filteredMentors.map(result => {
               return (
                 <section className='mentor-tile'>
-                  <img className='mentor-headshot' src={result.headshot} />
+                  <img
+                    className='mentor-headshot'
+                    src={result.headshot}
+                  />
                   <p>{result.blurb}</p>
-                  <button>Book a chat with {result.first_name}</button>
+                  <button
+                    className='main-button'
+                    onClick={() => mentorClick(result.id, result.first_name)}
+                  >
+                    Book a chat with {result.first_name}
+                  </button>
                 </section>
               );
             })
           ) : (
             <p>No Mentors Found</p>
           )}
+        </section>
+      </section>
+      <section id='schedule-tile'>
+        <h3>{currentMentor}'s Availability</h3>
+        <section className='day-and-time'>
+          <section className='day-tiles'>
+            {day.map(x => {
+              return <button 
+              onClick={dayClick} className='day-tile secondary-button'>
+                {x.Day}
+              </button>;
+            })}
+          </section>
+          <section className='time-tiles'>
+            {time.map(x => {
+              return <div className='time-tile'>{x.Time}</div>;
+            })}
+          </section>
         </section>
       </section>
     </div>

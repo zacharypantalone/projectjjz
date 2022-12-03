@@ -11,22 +11,47 @@
   align-items: center;
 }
 
+h1 {
+  position: fixed;
+  z-index: 1;
+}
+
 .background-image {
   @include base.background-image
 }
 
-button {
-  @include base.button
+.main-button {
+  background-color: transparent ;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: 2s;
+}
+
+
+.main-button:hover,
+.main-button:focus {
+color: black;
+box-shadow: inset 20rem 0 0 0 white;
+transition: 2s;
 }
 
 .career-recommendations {
   width: 800px;
   height: 500px;
   display: flex;
+  position: relative;
+  padding: 10px;
+  margin: 10px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  position: fixed;
   top: 75px;
 }
 
@@ -59,6 +84,80 @@ button {
 
 p {
   @include base.paragraph-style
+}
+
+#schedule-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 800px;
+  width: 1200px;
+  min-width: 1200px;
+  min-height: 800px;
+  position: relative;
+  top: 100px;
+}
+
+.day-and-time {
+  display: flex;
+  flex-direction: row;
+  width: 1200px;
+  height: 600px;
+}
+
+.day-tiles {
+  width: 200px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10px;
+  color: white;
+  font: 400 25px Inter, sans-serif;
+}
+
+.secondary-button {
+  border-radius: 0px;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  transition: 4s;
+}
+
+.secondary-button:hover,
+.secondary-button:focus {
+color: black;
+box-shadow: inset 30rem 0 0 0 white;
+transition: 4s;
+}
+
+.day-tile {
+  height: 120px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(178,178,177,0.3);
+}
+
+.time-tiles {
+  width: 1000px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: white;
+  font: 100 15px Inter, sans-serif;
+}
+
+.time-tile {
+  padding: 10px;
+  height: 120px;
+    width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: rgb(95 95 95 / 30%);
 }
 
 
