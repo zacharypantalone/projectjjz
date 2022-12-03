@@ -151,7 +151,17 @@ p {
   font: 100 15px Inter, sans-serif;
 }
 
-.time-tile {
+.time-tile-full {
+  padding: 10px;
+  height: 120px;
+    width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: rgba(201, 44, 44, 0.3);
+}
+
+.time-tile-available {
   padding: 10px;
   height: 120px;
     width: 1000px;
