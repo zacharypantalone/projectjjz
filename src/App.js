@@ -66,45 +66,55 @@ function App() {
         className='background-image'
         src={backgroundImage}
       />
-      <img
-        className='Logo'
-        height={200}
-        width={100}
-        src={Logo}
-        alt='Logo SVG'
-      />
-      <p className='mission-statement'>
-        Whether you are rejoining the workforce, or looking for a new career, it can be hard to know which direction to go!
-        The modern world is fast paced and constantly changing and with those changes comes new avenues and opportunities.
-        Career Squared is here to help you start your adventure towards the future of your dreams. We've developed a comprehensive career quiz
-        based on your skills and preferences aimed to guide you in the right direction.Your quiz results will offer you resources in your
-        best fitting careers and even an option to chat with professionals in those fields.
-      </p>
-      <form className='login-form'>
-        {formFields.map(field => {
-          return (
-            <FormField
-              className='form-field'
-              key={field.id}
-              id={field.id}
-              value={field.value}
-              label={field.label}
-              handleChange={field.handleChange}
-              placeholder={field.placeholder}
-              type={field.type}
-            />
-          );
-        })}
-        <button onClick={handleLogin}>Login</button>
-      </form>
-      <button
-        className='Register'
-        onClick={() => {
-          navigate('/register');
-        }}
-      >
-        Create Account
-      </button>
+      <article className='landing-page-container'>
+        <img
+          className='Logo'
+          height={200}
+          width={100}
+          src={Logo}
+          alt='Logo SVG'
+        />
+        <p className='mission-statement'>
+          Whether you are rejoining the workforce, or looking for a new career, it can be hard to know which direction to go!
+          The modern world is fast paced and constantly changing and with those changes comes new avenues and opportunities.
+          Career Squared is here to help you start your adventure towards the future of your dreams. We've developed a comprehensive career quiz
+          based on your skills and preferences aimed to guide you in the right direction.Your quiz results will offer you resources in your
+          best fitting careers and even an option to chat with professionals in those fields.
+        </p>
+        <form className='login-form'>
+          {formFields.map(field => {
+            return (
+              <FormField
+                className='form-field'
+                key={field.id}
+                id={field.id}
+                value={field.value}
+                label={field.label}
+                handleChange={field.handleChange}
+                placeholder={field.placeholder}
+                type={field.type}
+              />
+            );
+          })}
+          <div className='login-button-contianer'>
+            <button onClick={handleLogin}>Login</button>
+            <button
+              className='Register'
+              onClick={() => {
+                navigate('/register');
+              }}
+            >
+              Create Account
+            </button>
+          </div>
+        </form>
+
+        <div className='facts-container'>
+          <p className='fact'>The average person changes their career 7 times in their lifetime</p>
+          <p className='fact'>70% of the workforce is actively looking for a change in career.</p>
+          <p className='fact'>39% of people considering changes in career, do so because of better salaries. </p>
+        </div>
+      </article>
     </main>
   );
 }
