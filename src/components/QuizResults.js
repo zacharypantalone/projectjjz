@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router';
 
 const QuizResults = () => {
   const [jobs, setJobs] = useState([]);
-  const jobImages = [backEndDev, frontEndDev, creativeCoder];
+  const jobImages = [creativeCoder, frontEndDev, backEndDev];
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const QuizResults = () => {
             />
             <div>
               <h3>{job.title}</h3>
-              <p>{job.body}</p>
+              <p className='career-body'>{job.body}</p>
             </div>
             <button
               onClick={() => {

@@ -8,13 +8,22 @@
   text-align: center;
   width: 1000px;
   background-color: #566655;
-  opacity: 70%;
   margin-top: 6em;
   border-radius: 0.5em;
   display: flex;
   justify-content: center;
  padding-bottom: 50px;
+ background-color: rgba(178,178,177,0.3);
   
+}
+.career-image-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.career-image-title h1 {
+  font-size: 45px;
 }
 
 .career-info {
@@ -25,11 +34,26 @@
 
 .career-info-breakdown {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding-bottom: 8px;
+  justify-content: center;
+}
+
+.bold-title {
+ margin-right: 7px;
+}
+
+.career-body {
+  height: 280px;
 }
 
 .links {
   display: flex;
   flex-direction: column;
 } 
+
+a:link { color: white; }
+
+a:link:hover {
+  color: purple
+}

@@ -16,21 +16,21 @@ const Dashboard = () => {
 
   useEffect(() => {
     Promise.all([axios.get('/quizresults'), axios.get('/user')])
-    .then(res => {
-      if (res[0].data) {
-        setResults(res[0].data);
-      }
-      if (res[1].data.first_name) {
-        setUser(res[1].data.first_name);
-      }
-    })
-    .catch(e => {console.log(e);})
+      .then(res => {
+        if (res[0].data) {
+          setResults(res[0].data);
+        }
+        if (res[1].data.first_name) {
+          setUser(res[1].data.first_name);
+        }
+      })
+      .catch(e => { console.log(e); })
   }, []);
 
   const handleLogout = event => {
     event.preventDefault();
     axios
-      .post('/logout', res => {})
+      .post('/logout', res => { })
       .then(res => {
         if (res.status === 200) {
           navigate('/');
@@ -44,7 +44,7 @@ const Dashboard = () => {
   return (
     <main>
       <div className='dashboard'>
-        <h1>Welcome {user}!</h1>
+        <h1 className='dashboard-welcome'>Welcome {user}!</h1>
         {results.length > 0 ? <QuizResults /> : <QuizNotTaken />}
       </div>
       <img

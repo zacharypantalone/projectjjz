@@ -29,14 +29,16 @@ export default function Career() {
       <article className='career-info-container'>
         <div className='career-info'>
           {Object.keys(career).length !== 0 && <div>
-            <img src={jobImages[jobId - 1]} alt="img" width={300} />
+            <div className='career-image-title'>
+            <img src={jobImages[jobId - 1]} alt="img" width={325} />
             <h1>{career.job.title}</h1>
-            <h4>{career.job.body}</h4>
+            </div>
+            <h4 >{career.job.body}</h4>
             
-              <div className='career-info-breakdown'>Average Salary: {career.job.average_salary}</div>
-              <div className='career-info-breakdown'>Salary Range: {career.job.salary_range}</div>
-              <div className='career-info-breakdown'>Training Needed: {career.job.training}</div>
-              <div className='career-info-breakdown'>Necessary Skills: {career.job.skills}</div>
+              <div className='career-info-breakdown'><strong className='bold-title'>Average Salary:</strong>{career.job.average_salary}</div>
+              <div className='career-info-breakdown'><strong className='bold-title'>Salary Range: </strong>{career.job.salary_range}</div>
+              <div className='career-info-breakdown'><strong className='bold-title'>Training Needed: </strong>{ career.job.training}</div>
+              <div className='career-info-breakdown'><strong className='bold-title'>Necessary Skills: </strong>{ career.job.skills}</div>
            
 
             <h3>Related Articles: </h3>
