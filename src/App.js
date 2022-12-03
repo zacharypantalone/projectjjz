@@ -74,13 +74,13 @@ function App() {
           src={Logo}
           alt='Logo SVG'
         />
-        <p className='mission-statement'>
+        <h4 className='mission-statement'>
           Whether you are rejoining the workforce, or looking for a new career, it can be hard to know which direction to go!
           The modern world is fast paced and constantly changing and with those changes comes new avenues and opportunities.
           Career Squared is here to help you start your adventure towards the future of your dreams. We've developed a comprehensive career quiz
           based on your skills and preferences aimed to guide you in the right direction.Your quiz results will offer you resources in your
           best fitting careers and even an option to chat with professionals in those fields.
-        </p>
+        </h4>
         <form className='login-form'>
           {formFields.map(field => {
             return (

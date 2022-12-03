@@ -7,6 +7,11 @@
   padding-top: 60px;
 }
 
+.upper-quiz-results {
+  padding: 5px;
+  background-color: rgba(178,178,177,0.3);
+}
+
 .career-tile {
   background-color: #566655;
   color: black;
@@ -22,6 +27,10 @@
   // Change align-self once populating with more than one tile - Jack Nov30th
   opacity: 70%;
   box-shadow: whitesmoke 5px 12px 15px 3px;
+}
+
+.career-tile:hover {
+  opacity: 90%;
 }
 
 .career-body {
