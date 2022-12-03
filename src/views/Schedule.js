@@ -14,17 +14,16 @@ export default function Schedule() {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    axios.get(`/quizresults`).then(res => {
-      setquizResults(res.data);
-    });
-    axios.get(`/mentors`).then(res => {
-      setMentors(res.data);
-    });
-    axios.get('/days').then(res => {
-      setDay(res.data);
-    });
-    axios.get('/times').then(res => {
-      setTime(res.data);
+    Promise.all([
+      axios.get('/quizresults'),
+      axios.get('/mentors'),
+      axios.get('/days'),
+      axios.get('/times'),
+    ]).then(all => {
+      setquizResults(all[0].data);
+      setMentors(all[1].data);
+      setDay(all[2].data);
+      setTime(all[3].data);
     });
   }, []);
 
@@ -37,17 +36,16 @@ export default function Schedule() {
   };
 
   const mentorClick = (id, name) => {
+    console.log('id', id, 'name', name);
     setcurrentMentor({ id, name });
-    axios
-      .get('/appointments', { params: { id: currentMentor.id } })
-      .then(res => {
-        setAppointments(res.data);
-      });
+    axios.get('/appointments', { params: {  id } }).then(res => {
+      setAppointments(res.data);
+    });
   };
 
   const dayClick = () => {};
 
-  // console.log('appointments', appointments);
+  console.log('appointments', appointments);
   // console.log('times', time);
   // console.log('current Mentor', currentMentor);
   // console.log('filtered Mentors', filteredMentors);
@@ -83,7 +81,10 @@ export default function Schedule() {
           {filteredMentors.length > 0
             ? filteredMentors.map(result => {
                 return (
-                  <section className='mentor-tile'>
+                  <section
+                    key={result.id}
+                    className='mentor-tile'
+                  >
                     <img
                       className='mentor-headshot'
                       src={result.headshot}
@@ -115,6 +116,7 @@ export default function Schedule() {
               {day.map(x => {
                 return (
                   <button
+                    key={x.id}
                     onClick={dayClick}
                     className='day-tile secondary-button'
                   >
