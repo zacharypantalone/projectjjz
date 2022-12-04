@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/Quiz.scss';
-import '../styles/index.scss';
 import backgroundImage from '../assets/background-image.jpg';
-import QuizItem from './QuizItem';
+import '../styles/Quiz.scss';
 
 export default function Quiz() {
   const [questions, setQuestions] = useState([]);
@@ -25,38 +23,43 @@ export default function Quiz() {
   };
   const handleFinalClick = (event) => {
     event.preventDefault();
-    axios.post('/quizresults', quizResults).then(() => navigate('/dashboard'));
+    axios.post('/quizresults', quizResults);
+
+    navigate('/dashboard');
   };
 
   const renderQuiz = () => {
     if (questionCount !== questions.length) {
       return (
-        <div>
+        <div className='quiz-main'>
           <img
             className='background-image'
             src={backgroundImage}
           />
-
-          <div class='wrapper'>
-            <div class='carousel'>
-              {questions.map((question, index) => (
-                <QuizItem
-                  questions={questions}
-                  index={index}
-                  handleClick={handleClick}
-                />
-              ))}
-            </div>
+          <div className='quiz-tile'>
+          {questions[questionCount].question}
+          <button onClick={handleClick}>
+            {questions[questionCount].answer_one}
+          </button>
+          <button onClick={handleClick}>
+            {questions[questionCount].answer_two}
+          </button>
           </div>
         </div>
       );
     } else {
       return (
-        <div>
+        <div className='quiz-main'>
+          <img
+            className='background-image'
+            src={backgroundImage}
+          />
+          <div className='quiz-tile'>
           <button onClick={handleFinalClick}>
             You're all set! Click here to go back to your dashboard and see the
             results
           </button>
+          </div>
         </div>
       );
     }
@@ -64,7 +67,15 @@ export default function Quiz() {
 
   return (
     <>
-      <div>{renderQuiz()}</div>
+      <img
+        className='background-image'
+        src={backgroundImage}
+      />
+      {questions.length > 0 ? (
+        <div>{renderQuiz()}</div>
+      ) : (
+        <div>Questions not populated yet</div>
+      )}
     </>
   );
 }
