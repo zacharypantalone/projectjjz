@@ -1,0 +1,28 @@
+.menu-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dropdown-menu {
+  padding: 15px;
+  background-color: rgba(178,178,177,0.3);
+  cursor: pointer
+}
+
+.drop-down-item {
+display: flex;
+
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  transition: .5s ease;
+  visibility: visible;
+}
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  transition: .5s ease;
+visibility: hidden;
+}
