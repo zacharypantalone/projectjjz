@@ -5,6 +5,9 @@ import '../styles/schedule.scss';
 import backgroundImage from '../assets/background-image.jpg';
 
 import { MentorTile } from '../components/MentorCard';
+import { CareerButton } from '../components/CareerButton';
+import { DayButton } from '../components/DayButton';
+import { TimeTile } from '../components/TimeTile';
 
 export default function Schedule() {
   // const [state, setState] = useState({
@@ -27,9 +30,9 @@ export default function Schedule() {
   const [mentors, setMentors] = useState({});
   const [filteredMentors, setfilteredMentors] = useState({});
   const [currentMentor, setcurrentMentor] = useState({});
-  const [day, setDay] = useState([]);
-  const [currentDay, setcurrentDay] = useState([1]);
-  const [time, setTime] = useState([]);
+  const [days, setDays] = useState([]);
+  const [currentDay, setcurrentDay] = useState([]);
+  const [times, setTimes] = useState([]);
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -43,8 +46,8 @@ export default function Schedule() {
     ]).then(all => {
       setquizResults(all[0].data);
       setMentors(all[1].data);
-      setDay(all[2].data);
-      setTime(all[3].data);
+      setDays(all[2].data);
+      setTimes(all[3].data);
     });
     return () => document.body.classList.remove('schedule');
   }, []);
@@ -94,13 +97,11 @@ export default function Schedule() {
           {quizResults.length > 0 ? (
             quizResults.map(result => {
               return (
-                <button
+                <CareerButton
                   key={result.title}
-                  className='main-button'
-                  onClick={() => careerClick(result.id)}
-                >
-                  {result.title}
-                </button>
+                  result={result}
+                  handleClick={careerClick}
+                />
               );
             })
           ) : (
@@ -110,10 +111,13 @@ export default function Schedule() {
         <section className='mentor-list'>
           {filteredMentors.length > 0
             ? filteredMentors.map(result => {
-                return <MentorTile
-                  mentorClick={mentorClick}
-                  result={result}
-                />;
+                return (
+                  <MentorTile
+                    key={result.id}
+                    handleClick={mentorClick}
+                    result={result}
+                  />
+                );
               })
             : ''}
         </section>
@@ -127,49 +131,21 @@ export default function Schedule() {
           ) : (
             <section className='day-and-time'>
               <section className='day-tiles'>
-                {day.map(x => {
+                {days.map(day => {
                   return (
-                    <button
-                      key={x.id}
-                      onClick={() => {
-                        dayClick(x.id);
-                      }}
-                      className='day-tile secondary-button'
-                    >
-                      {x.day}
-                    </button>
+                    <DayButton
+                      day={day}
+                      handleClick={dayClick}
+                    />
                   );
                 })}
               </section>
               <section className='time-tiles'>
-                {time.map(t => {
-                  if (appointments.some(a => a.time_id === t.id)) {
-                    return (
-                      <section
-                        className='time-tile-full'
-                        key={t.time}
-                      >
-                        <section className='time-marker'>{t.time}</section>
-                        <h3 className='h3-timeslot-booked'>Timeslot Booked</h3>
-                      </section>
-                    );
-                  } else {
-                    return (
-                      <section
-                        className='time-tile-available'
-                        key={t.time}
-                      >
-                        <section className='time-marker'>{t.time}</section>
-                        <h3 className='h3-timeslot'>Timeslot Available</h3>
-                        <div className='timeslot-button-div'>
-                          <button onClick={() => handleBooking(t.time, t.id)}>
-                            Book
-                          </button>
-                        </div>
-                      </section>
-                    );
-                  }
-                })}
+                <TimeTile
+                  times={times}
+                  appointments={appointments}
+                  handleClick={handleBooking}
+                />
               </section>
             </section>
           )}
