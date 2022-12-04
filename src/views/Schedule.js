@@ -31,7 +31,7 @@ export default function Schedule() {
   const [filteredMentors, setfilteredMentors] = useState({});
   const [currentMentor, setcurrentMentor] = useState({});
   const [days, setDays] = useState([]);
-  const [currentDay, setcurrentDay] = useState([]);
+  const [currentDay, setcurrentDay] = useState(1);
   const [times, setTimes] = useState([]);
   const [appointments, setAppointments] = useState([]);
 
@@ -43,14 +43,18 @@ export default function Schedule() {
       axios.get('/mentors'),
       axios.get('/days'),
       axios.get('/times'),
+      axios.get('/appointments', {
+        params: { id: currentMentor.id, day: currentDay },
+      }),
     ]).then(all => {
       setquizResults(all[0].data);
       setMentors(all[1].data);
       setDays(all[2].data);
       setTimes(all[3].data);
+      setAppointments(all[4].data);
     });
     return () => document.body.classList.remove('schedule');
-  }, []);
+  }, [currentDay, currentMentor]);
 
   const careerClick = id => {
     const filteredMentors = mentors.filter(x => {
@@ -62,9 +66,6 @@ export default function Schedule() {
 
   const mentorClick = (id, name) => {
     setcurrentMentor({ id, name });
-    axios.get('/appointments', { params: { id } }).then(res => {
-      setAppointments(res.data);
-    });
   };
 
   const dayClick = id => {
