@@ -23,7 +23,8 @@ export default function Quiz() {
   };
   const handleFinalClick = (event) => {
     event.preventDefault();
-    axios.post('/quizresults', quizResults);
+    axios.post('/quizresults', quizResults)
+    .then(() => navigate('/dashboard'));
 
     navigate('/dashboard');
   };
