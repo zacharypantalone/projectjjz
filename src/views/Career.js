@@ -7,6 +7,7 @@ import backgroundImage from '../assets/background-image.jpg';
 import backEndDev from '../assets/back-end-dev.png';
 import frontEndDev from '../assets/front-end-dev.png';
 import creativeCoder from '../assets/creative-coding.png';
+import DropDownMenu from '../components/DropDownMenu';
 
 export default function Career() {
 
@@ -22,6 +23,7 @@ export default function Career() {
   console.log("HERE", career)
   return (
     <div className='career-component'>
+      <DropDownMenu />
       <img
         className='background-image'
         src={backgroundImage}
@@ -30,16 +32,16 @@ export default function Career() {
         <div className='career-info'>
           {Object.keys(career).length !== 0 && <div>
             <div className='career-image-title'>
-            <img src={jobImages[jobId - 1]} alt="img" width={325} />
-            <h1>{career.job.title}</h1>
+              <img src={jobImages[jobId - 1]} alt="img" width={325} />
+              <h1>{career.job.title}</h1>
             </div>
             <h4 >{career.job.body}</h4>
-            
-              <div className='career-info-breakdown'><strong className='bold-title'>Average Salary:</strong>{career.job.average_salary}</div>
-              <div className='career-info-breakdown'><strong className='bold-title'>Salary Range: </strong>{career.job.salary_range}</div>
-              <div className='career-info-breakdown'><strong className='bold-title'>Training Needed: </strong>{ career.job.training}</div>
-              <div className='career-info-breakdown'><strong className='bold-title'>Necessary Skills: </strong>{ career.job.skills}</div>
-           
+
+            <div className='career-info-breakdown'><strong className='bold-title'>Average Salary:</strong>{career.job.average_salary}</div>
+            <div className='career-info-breakdown'><strong className='bold-title'>Salary Range: </strong>{career.job.salary_range}</div>
+            <div className='career-info-breakdown'><strong className='bold-title'>Training Needed: </strong>{career.job.training}</div>
+            <div className='career-info-breakdown'><strong className='bold-title'>Necessary Skills: </strong>{career.job.skills}</div>
+
 
             <h3>Related Articles: </h3>
             <div className='links'>

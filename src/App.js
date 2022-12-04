@@ -5,6 +5,7 @@ import axios from 'axios';
 import './styles/App.scss';
 import './styles/Button.scss'
 import FormField from './components/FormField';
+import DropDownMenu from './components/DropDownMenu';
 import Logo from './assets/Logo.svg';
 import backgroundImage from './assets/background-image.jpg';
 
@@ -62,11 +63,13 @@ function App() {
 
   return (
     <main className='App'>
+      <DropDownMenu />
       <img
         className='background-image'
         src={backgroundImage}
       />
       <article className='landing-page-container'>
+
         <img
           className='Logo'
           height={200}

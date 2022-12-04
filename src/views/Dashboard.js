@@ -4,9 +4,9 @@ import axios from 'axios';
 
 import QuizResults from '../components/QuizResults';
 import QuizNotTaken from '../components/QuizNotTaken';
-
 import '../styles/Dashboard.scss';
 import backgroundImage from '../assets/background-image.jpg';
+import DropDownMenu from '../components/DropDownMenu';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -27,22 +27,10 @@ const Dashboard = () => {
       .catch(e => { console.log(e); })
   }, []);
 
-  const handleLogout = event => {
-    event.preventDefault();
-    axios
-      .post('/logout', res => { })
-      .then(res => {
-        if (res.status === 200) {
-          navigate('/');
-        }
-      })
-      .catch(res => {
-        console.log(res);
-      });
-  };
 
   return (
     <main>
+      <DropDownMenu />
       <div className='dashboard'>
         <h1 className='dashboard-welcome'>Welcome {user}!</h1>
         {results.length > 0 ? <QuizResults /> : <QuizNotTaken />}
@@ -51,7 +39,7 @@ const Dashboard = () => {
         className='background-image'
         src={backgroundImage}
       />
-      <button onClick={handleLogout}>Logout</button>
+
     </main>
   );
 };
