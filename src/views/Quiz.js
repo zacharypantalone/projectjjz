@@ -14,6 +14,7 @@ export default function Quiz() {
   const navigate = useNavigate();
 
   useEffect(() => {
+
     axios.get('/quizquestions').then((res) => {
       setQuestions(res.data);
     });
@@ -36,7 +37,6 @@ export default function Quiz() {
             className='background-image'
             src={backgroundImage}
           />
-
           <div class='wrapper'>
             <div class='carousel'>
               {questions.map((question, index) => (
