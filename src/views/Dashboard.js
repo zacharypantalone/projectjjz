@@ -4,9 +4,9 @@ import axios from 'axios';
 
 import QuizResults from '../components/QuizResults';
 import QuizNotTaken from '../components/QuizNotTaken';
-
-import '../styles/Dashboard.css';
+import '../styles/Dashboard.scss';
 import backgroundImage from '../assets/background-image.jpg';
+import DropDownMenu from '../components/DropDownMenu';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -15,41 +15,31 @@ const Dashboard = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    Promise.all([axios.get('/quizresults'), axios.get('/user')]).then(res => {
-      if (res[0].data) {
-        setResults(res[0].data);
-      }
-      if (res[1].data.first_name) {
-        setUser(res[1].data.first_name);
-      }
-    });
-  }, []);
-
-  const handleLogout = event => {
-    event.preventDefault();
-    axios
-      .post('/logout', res => {})
+    Promise.all([axios.get('/quizresults'), axios.get('/user')])
       .then(res => {
-        if (res.status === 200) {
-          navigate('/');
+        if (res[0].data) {
+          setResults(res[0].data);
+        }
+        if (res[1].data.first_name) {
+          setUser(res[1].data.first_name);
         }
       })
-      .catch(res => {
-        console.log(res);
-      });
-  };
+      .catch(e => { console.log(e); })
+  }, []);
+
 
   return (
     <main>
+      <DropDownMenu />
       <div className='dashboard'>
-        <h1>Hi {user}!</h1>
+        <h1 className='dashboard-welcome'>Welcome {user}!</h1>
         {results.length > 0 ? <QuizResults /> : <QuizNotTaken />}
       </div>
       <img
         className='background-image'
         src={backgroundImage}
       />
-      <button onClick={handleLogout}>Logout</button>
+
     </main>
   );
 };

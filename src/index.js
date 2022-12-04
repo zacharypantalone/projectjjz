@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 
-import './styles/index.css';
+import './styles/index.scss';
 import App from './App';
 import Register from './views/Register';
 import Dashboard from './views/Dashboard';

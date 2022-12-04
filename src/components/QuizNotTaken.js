@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 
+import '../styles/QuizNotTaken.scss';
+
 const QuizNotTaken = () => {
   const navigate = useNavigate();
 
@@ -10,19 +12,25 @@ const QuizNotTaken = () => {
 
   return (
     <div>
-      <h3>
-        75% of users reported an increase in life satisfaction after switching
-        careers
-      </h3>
-      <h3>
-        Over half of our users have reported a 50% earnings increase since
-        finding a new career
-      </h3>
+      <div className='testimonials-container'>
+        <h4 className='testimonial'>
+          "I didn't know where to start, I just knew I needed a big change. A friend recommmended Career-Squared which ended up being the push I needed! - Susan Smith"
+        </h4>
+        <h4 className='testimonial'>
+          "This app is the perfect first step to get the ball rolling on your new future" - Ricky Bobby
+        </h4>
+        <h4 className='testimonial'>
+          "Since discovering Career-Squared, I've doubled my annual salary and I no longer dred going to work in the morning" - Scooby Doo
+        </h4>
+      </div>
+      <h2 className='take-quiz-prompt'>
+        Click below and take the career quiz to reveal your results!
+      </h2>
       <button
         type='submit'
         onClick={handleClick}
       >
-        Find your new career!
+        Take the quiz!
       </button>
     </div>
   );
