@@ -33,7 +33,7 @@ export default function Career() {
           {Object.keys(career).length !== 0 && <div>
             <div className='career-image-title'>
               <img src={jobImages[jobId - 1]} alt="img" width={325} />
-              <h1>{career.job.title}</h1>
+              <h2 className='career-title'>{career.job.title}</h2>
             </div>
             <h4 >{career.job.body}</h4>
 

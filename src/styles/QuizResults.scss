@@ -8,8 +8,17 @@
 }
 
 .upper-quiz-results {
-  padding: 5px;
+  margin-top: 40px;
+  padding: 30px;
   background-color: rgba(178,178,177,0.3);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.quiz-result-title {
+  color: white;
+  font-size: 15px;
 }
 
 .career-tile {
@@ -35,9 +44,11 @@
 
 .career-body {
   height: 280px;
+  font-size: 15px;
 }
 
 .quiz-retake-prompt {
   color: white;
   margin-top: 96px;
+  padding-bottom: 50px;
 }

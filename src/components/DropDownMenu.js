@@ -31,13 +31,12 @@ const DropDownMenu = () => {
 
       <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`}>
         <div>
-          <h3 onClick={() => navigate('/dashboard')} className='drop-down-item'>dashboard</h3>
-          <h3 onClick={() => navigate('/')} className='drop-down-item'>FAQ</h3>
+          <h3 onClick={() => navigate('/dashboard')} className='drop-down-item'>Dashboard</h3>
+          <h3 onClick={() => navigate('/schedule')} className='drop-down-item'>Schedule</h3>
           <h3 onClick={() => navigate('/')} className='drop-down-item'>About</h3>
           <h3 className='drop-down-item'><Logout /></h3>
         </div>
       </div>
-
     </div>
   );
 }

@@ -26,11 +26,11 @@ const QuizResults = () => {
 
     <article>
       <div className='upper-quiz-results'>
-      <h3 >
+      <h3>
         Now that you have taken our quiz you're one step closer to a better
         future!
       </h3>
-      <h1>Here are the results from your last quiz.....</h1>
+      <h2 className='quiz-result-title'>Here are the results from your latest quiz.....</h2>
       </div>
       <div className='career-tiles'>
         {jobs.map((job, index) => (
@@ -54,8 +54,8 @@ const QuizResults = () => {
           </div>
         ))}
       </div>
-      <div>
-        <h3 className='quiz-retake-prompt'>
+      <div className='quiz-retake-prompt'>
+        <h3>
           If you would like to retake the quiz for any reason you can click
           below
         </h3>
