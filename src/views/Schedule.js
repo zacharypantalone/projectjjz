@@ -5,15 +5,34 @@ import '../styles/schedule.scss';
 import backgroundImage from '../assets/background-image.jpg';
 
 export default function Schedule() {
+  // const [state, setState] = useState({
+  //   days: {
+  //     monday: {
+  //       id: '',
+  //       times: {
+  //         id: '',
+  //         '9am': {
+  //           appointment: {
+  //             mentorId: '',
+  //             userId: '',
+  //           },
+  //         },
+  //       },
+  //     },
+  //   },
+  // });
   const [quizResults, setquizResults] = useState({});
   const [mentors, setMentors] = useState({});
   const [filteredMentors, setfilteredMentors] = useState({});
   const [currentMentor, setcurrentMentor] = useState({});
   const [day, setDay] = useState([]);
+  const [currentDay, setcurrentDay] = useState([]);
   const [time, setTime] = useState([]);
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
+    document.body.classList.add('schedule');
+
     Promise.all([
       axios.get('/quizresults'),
       axios.get('/mentors'),
@@ -25,6 +44,7 @@ export default function Schedule() {
       setDay(all[2].data);
       setTime(all[3].data);
     });
+    return () => document.body.classList.remove('schedule');
   }, []);
 
   const careerClick = id => {
@@ -36,15 +56,30 @@ export default function Schedule() {
   };
 
   const mentorClick = (id, name) => {
-    console.log('id', id, 'name', name);
     setcurrentMentor({ id, name });
-    axios.get('/appointments', { params: {  id } }).then(res => {
+    axios.get('/appointments', { params: { id } }).then(res => {
       setAppointments(res.data);
     });
   };
 
-  const dayClick = () => {};
+  const dayClick = id => {
+    setcurrentDay(id);
+  };
 
+  const handleBooking = (time, id) => {
+    if (
+      window.confirm(
+        `Please confirm you would like to book an appointment with ${currentMentor.name} at ${time}`,
+      )
+    ) {
+      axios.post('/appointments', [currentMentor, currentDay, id]).then(res => {
+        console.log(res.data);
+        setAppointments([...appointments, res.data.Data]);
+      });
+    }
+  };
+
+  // console.log(currentDay);
   console.log('appointments', appointments);
   // console.log('times', time);
   // console.log('current Mentor', currentMentor);
@@ -103,67 +138,62 @@ export default function Schedule() {
         </section>
       </section>
       {!filteredMentors.length > 0 ? (
-        <h3>No Career Selected</h3>
+        ''
       ) : (
         <section id='schedule-tile'>
-          {currentMentor.name ? (
-            <h3>{currentMentor.name}'s Availability</h3>
-          ) : (
+          {!currentMentor.name ? (
             <h3>Select a Mentor to see their Availability</h3>
+          ) : (
+            <section className='day-and-time'>
+              <section className='day-tiles'>
+                {day.map(x => {
+                  return (
+                    <button
+                      key={x.id}
+                      onClick={() => {
+                        dayClick(x.id);
+                      }}
+                      className='day-tile secondary-button'
+                    >
+                      {x.day}
+                    </button>
+                  );
+                })}
+              </section>
+              <section className='time-tiles'>
+                {time.map(t => {
+                  if (appointments.some(a => a.time_id === t.id)) {
+                    return (
+                      <section
+                        className='time-tile-full'
+                        key={t.time}
+                      >
+                        <section className='time-marker'>{t.time}</section>
+                        <h3 className='h3-timeslot-booked'>Timeslot Booked</h3>
+                      </section>
+                    );
+                  } else {
+                    return (
+                      <section
+                        className='time-tile-available'
+                        key={t.time}
+                      >
+                        <section className='time-marker'>{t.time}</section>
+                        <h3 className='h3-timeslot'>Timeslot Available</h3>
+                        <div className='timeslot-button-div'>
+                          <button onClick={() => handleBooking(t.time, t.id)}>
+                            Book
+                          </button>
+                        </div>
+                      </section>
+                    );
+                  }
+                })}
+              </section>
+            </section>
           )}
-          <section className='day-and-time'>
-            <section className='day-tiles'>
-              {day.map(x => {
-                return (
-                  <button
-                    key={x.id}
-                    onClick={dayClick}
-                    className='day-tile secondary-button'
-                  >
-                    {x.day}
-                  </button>
-                );
-              })}
-            </section>
-            <section className='time-tiles'>
-              {time.map(t => {
-                if (appointments.some(a => a.time_id === t.id)) {
-                  return (
-                    <div
-                      className='time-tile-full'
-                      key={t.time}
-                    >
-                      {t.time}
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div
-                      className='time-tile-available'
-                      key={t.time}
-                    >
-                      {t.time}
-                    </div>
-                  );
-                }
-              })}
-            </section>
-          </section>
         </section>
       )}
     </div>
   );
 }
-
-// {
-//   time.map(x => {
-//     return (
-//       <div
-//         className='time-tile'
-//         key={x.time}
-//       >
-//         {x.time}
-//       </div>
-//     );
-//   });
-// }

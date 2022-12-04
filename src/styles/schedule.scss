@@ -1,10 +1,16 @@
 @use 'base';
 
+body.schedule {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
 #schedule {
   font-family: base.$primary-font;
   height: 100vh;
   width: 100vw;
-  margin: 10px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -12,8 +18,15 @@
 }
 
 h1 {
-  position: fixed;
   z-index: 1;
+  color: white;
+  margin: 0px;
+  position: absolute;
+  top: 50px;
+}
+
+h3 {
+  color: white;
 }
 
 .background-image {
@@ -41,10 +54,9 @@ color: black;
 box-shadow: inset 20rem 0 0 0 white;
 transition: 2s;
 }
-
 .career-recommendations {
   width: 800px;
-  height: 500px;
+  height: auto;
   display: flex;
   position: relative;
   padding: 10px;
@@ -66,6 +78,7 @@ transition: 2s;
 .mentor-list {
   display: flex;
   flex-direction: row;
+  height: auto;
 }
 
 .mentor-tile {
@@ -74,7 +87,8 @@ transition: 2s;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  height: 350px;
+  height: 400px;
+  margin-top: 25px;
 }
 
 .mentor-headshot {
@@ -154,21 +168,51 @@ p {
 .time-tile-full {
   padding: 10px;
   height: 120px;
-    width: 1000px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: rgba(201, 44, 44, 0.3);
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(201, 44, 44, 0.7);
+  color: rgb(201,44,44);
+}
+
+.h3-timeslot {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 0px;
+  font-size: 25px;
+}
+.h3-timeslot-booked {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 0px;
+  font-size: 25px;
+  color: rgb(201,44,44);
 }
 
 .time-tile-available {
   padding: 10px;
   height: 120px;
-    width: 1000px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: rgb(95 95 95 / 30%);
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgb(95 95 95 / 30%);
+}
+
+.timeslot-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 0px;
+  font-size: 25px;
 }
 
 
