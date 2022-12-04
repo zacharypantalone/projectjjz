@@ -4,6 +4,8 @@ import axios from 'axios';
 import FormField from '../components/FormField';
 import backgroundImage from '../assets/background-image.jpg';
 
+import '../styles/Register.scss'
+
 export default function Register() {
   const [user, setUser] = useState({
     firstname: '',
@@ -77,12 +79,9 @@ export default function Register() {
 
   return (
     <div id='Register-page'>
-            <img
-        className='background-image'
-        src={backgroundImage}
-      />
+      <div className='register-page-container'>
       <h1>New here? Register!</h1>
-      <form>
+      <form className='register-form'>
         {formFields.map(field => {
           return (
             <FormField
@@ -98,6 +97,11 @@ export default function Register() {
         })}
         <button onClick={handleSubmit}>Register</button>
       </form>
+      </div>
+      <img
+        className='background-image'
+        src={backgroundImage}
+      />
     </div>
   );
 }

@@ -22,7 +22,7 @@ const Logout = () => {
 
   return (
     <div
-     onClick={handleLogout}>Logout
+      onClick={handleLogout}>Logout
     </div>
   )
 }
