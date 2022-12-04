@@ -1,0 +1,20 @@
+$primary-font: Inter;
+
+@mixin background-image {
+  z-index: -1;
+  min-height: 100%;
+  min-width: 1440px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@mixin paragraph-style {
+  font-family: Inter, sans-serif;
+  color: white;
+  font-weight: 600;
+}
+
+$tile-color: #616554;
