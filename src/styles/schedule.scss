@@ -1,0 +1,230 @@
+@use 'base';
+
+body.schedule {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+#schedule {
+  font-family: base.$primary-font;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  z-index: 1;
+  color: white;
+  margin: 0px;
+  position: absolute;
+  top: 50px;
+}
+
+h3 {
+  color: white;
+}
+
+.background-image {
+  @include base.background-image
+}
+
+.main-button {
+  background-color: transparent ;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: 2s;
+}
+
+
+.main-button:hover,
+.main-button:focus {
+color: black;
+box-shadow: inset 20rem 0 0 0 white;
+transition: 2s;
+}
+.career-recommendations {
+  width: 800px;
+  height: auto;
+  display: flex;
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  top: 75px;
+}
+
+.career-buttons {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mentor-list {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.mentor-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  height: 400px;
+  margin-top: 25px;
+}
+
+.mentor-headshot {
+  border-radius: 15px;
+  height: 75px;
+}
+
+p {
+  @include base.paragraph-style
+}
+
+#schedule-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 800px;
+  width: 1200px;
+  min-width: 1200px;
+  min-height: 800px;
+  position: relative;
+  top: 100px;
+}
+
+.day-and-time {
+  display: flex;
+  flex-direction: row;
+  width: 1200px;
+  height: 600px;
+}
+
+
+.secondary-button {
+  border-radius: 0px;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  transition: 4s;
+  font: 400 25px Inter, sans-serif;
+}
+
+.secondary-button:hover,
+.secondary-button:focus {
+  color: black;
+  box-shadow: inset 30rem 0 0 0 white;
+  transition: 4s;
+}
+
+.day-tiles {
+  width: 200px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10px;
+  color: white;
+}
+
+.day-tile {
+  height: 120px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(178,178,177,0.3);
+}
+
+.time-tiles {
+  width: 1000px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: white;
+  font: 100 15px Inter, sans-serif;
+}
+
+.time-tile-full {
+  padding: 10px;
+  height: 120px;
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(201, 44, 44, 0.7);
+  color: rgb(201,44,44);
+}
+
+.h3-timeslot {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 0px;
+  font-size: 25px;
+}
+.h3-timeslot-booked {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 0px;
+  font-size: 25px;
+  color: rgb(201,44,44);
+}
+
+.time-tile-available {
+  padding: 10px;
+  height: 120px;
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgb(95 95 95 / 30%);
+}
+
+.timeslot-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 0px;
+  font-size: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

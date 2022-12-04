@@ -12,6 +12,7 @@ export default function Quiz() {
   const navigate = useNavigate();
 
   useEffect(() => {
+
     axios.get('/quizquestions').then((res) => {
       setQuestions(res.data);
     });
