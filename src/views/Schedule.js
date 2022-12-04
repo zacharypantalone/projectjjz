@@ -4,6 +4,8 @@ import axios from 'axios';
 import '../styles/schedule.scss';
 import backgroundImage from '../assets/background-image.jpg';
 
+import { MentorTile } from '../components/MentorCard';
+
 export default function Schedule() {
   // const [state, setState] = useState({
   //   days: {
@@ -26,7 +28,7 @@ export default function Schedule() {
   const [filteredMentors, setfilteredMentors] = useState({});
   const [currentMentor, setcurrentMentor] = useState({});
   const [day, setDay] = useState([]);
-  const [currentDay, setcurrentDay] = useState([]);
+  const [currentDay, setcurrentDay] = useState([1]);
   const [time, setTime] = useState([]);
   const [appointments, setAppointments] = useState([]);
 
@@ -73,17 +75,10 @@ export default function Schedule() {
       )
     ) {
       axios.post('/appointments', [currentMentor, currentDay, id]).then(res => {
-        console.log(res.data);
         setAppointments([...appointments, res.data.Data]);
       });
     }
   };
-
-  // console.log(currentDay);
-  console.log('appointments', appointments);
-  // console.log('times', time);
-  // console.log('current Mentor', currentMentor);
-  // console.log('filtered Mentors', filteredMentors);
 
   return (
     <div id='schedule'>
@@ -115,24 +110,10 @@ export default function Schedule() {
         <section className='mentor-list'>
           {filteredMentors.length > 0
             ? filteredMentors.map(result => {
-                return (
-                  <section
-                    key={result.id}
-                    className='mentor-tile'
-                  >
-                    <img
-                      className='mentor-headshot'
-                      src={result.headshot}
-                    />
-                    <p>{result.blurb}</p>
-                    <button
-                      className='main-button'
-                      onClick={() => mentorClick(result.id, result.first_name)}
-                    >
-                      Book a chat with {result.first_name}
-                    </button>
-                  </section>
-                );
+                return <MentorTile
+                  mentorClick={mentorClick}
+                  result={result}
+                />;
               })
             : ''}
         </section>
