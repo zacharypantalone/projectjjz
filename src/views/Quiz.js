@@ -25,8 +25,6 @@ export default function Quiz() {
     event.preventDefault();
     axios.post('/quizresults', quizResults)
     .then(() => navigate('/dashboard'));
-
-    navigate('/dashboard');
   };
 
   const renderQuiz = () => {
