@@ -29,7 +29,25 @@ export default function Quiz() {
   };
 
   const renderQuiz = () => {
-    if (questionCount !== questions.length) {
+    if (questionCount === 0) {
+      return (
+        <div className='quiz-main'>
+        <img
+          className='background-image'
+          src={backgroundImage}
+        />
+        <div className='quiz-tile'>
+        {questions[questionCount].question}
+        <button onClick={handleClick}>
+          {questions[questionCount].answer_one}
+        </button>
+        </div>
+      </div>
+
+      )
+    }
+
+    else if (questionCount !== questions.length) {
       return (
         <div className='quiz-main'>
           <img
