@@ -9,6 +9,7 @@ import { MentorTile } from '../components/MentorCard';
 import { CareerButton } from '../components/CareerButton';
 import { DayButton } from '../components/DayButton';
 import { TimeTile } from '../components/TimeTile';
+import Careersquared from '../assets/Careersquared.svg';
 
 export default function Schedule() {
   // const [state, setState] = useState({
@@ -94,6 +95,10 @@ export default function Schedule() {
         src={backgroundImage}
         alt='background'
       />
+      <img
+        className='Careersquared'
+        src={Careersquared}
+      />
       <section className='career-recommendations'>
         <h3>Select a career to see which mentors are available to chat with</h3>
         <section className='career-buttons'>
@@ -137,6 +142,7 @@ export default function Schedule() {
                 {days.map(day => {
                   return (
                     <DayButton
+                      key={day.id}
                       day={day}
                       handleClick={dayClick}
                     />

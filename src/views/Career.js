@@ -9,6 +9,7 @@ import frontEndDev from '../assets/front-end-dev.png';
 import creativeCoder from '../assets/creative-coding.png';
 import DropDownMenu from '../components/DropDownMenu';
 import BookAppointmentButton from '../components/BookAppointmentButton';
+import Careersquared from '../assets/Careersquared.svg';
 
 export default function Career() {
 
@@ -28,6 +29,10 @@ export default function Career() {
       <img
         className='background-image'
         src={backgroundImage}
+      />
+      <img
+        className='Careersquared'
+        src={Careersquared}
       />
       <article className='career-info-container'>
         <div className='career-info'>
@@ -68,4 +73,3 @@ export default function Career() {
     </div>
   );
 }
-

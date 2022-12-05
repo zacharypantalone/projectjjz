@@ -14,13 +14,12 @@ const DropDownMenu = () => {
 
   useEffect(() => {
     const handler = (e) => {
-      if (!menuDrop.current.contains(e.target)) {
+      if (!menuDrop.current?.contains(e.target)) {
         setOpen(false)
-      }
+      } 
     };
-
     document.addEventListener('mousedown', handler)
-  })
+  }, [])
 
   return (
     <div ref={menuDrop} className='menu-container'>

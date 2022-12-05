@@ -8,6 +8,7 @@ import '../styles/Dashboard.scss';
 import backgroundImage from '../assets/background-image.jpg';
 import DropDownMenu from '../components/DropDownMenu';
 import BookAppointmentButton from '../components/BookAppointmentButton';
+import Careersquared from '../assets/Careersquared.svg';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -40,6 +41,10 @@ const Dashboard = () => {
       <img
         className='background-image'
         src={backgroundImage}
+      />
+      <img
+        className='Careersquared'
+        src={Careersquared}
       />
 
     </main>

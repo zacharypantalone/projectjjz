@@ -8,6 +8,7 @@ import FormField from './components/FormField';
 import DropDownMenu from './components/DropDownMenu';
 import Logo from './assets/Logo.svg';
 import backgroundImage from './assets/background-image.jpg';
+import Careersquared from './assets/Careersquared.svg';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     const currentUser = {
       user,
     };
+    
     axios
       .post('/login', currentUser)
       .then(res => {
@@ -67,6 +69,10 @@ function App() {
       <img
         className='background-image'
         src={backgroundImage}
+      />
+      <img
+        className='Careersquared'
+        src={Careersquared}
       />
       <article className='landing-page-container'>
 
@@ -111,7 +117,6 @@ function App() {
             </button>
           </div>
         </form>
-
         <div className='facts-container'>
           <p className='fact'>The average person changes their career 7 times in their lifetime</p>
           <p className='fact'>70% of the workforce is actively looking for a change in career.</p>

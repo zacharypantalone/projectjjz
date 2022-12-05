@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import backgroundImage from '../assets/background-image.jpg';
+import DropDownMenu from '../components/DropDownMenu';
 import '../styles/Quiz.scss';
+import Careersquared from '../assets/Careersquared.svg';
+
 
 export default function Quiz() {
   const [questions, setQuestions] = useState([]);
@@ -29,15 +32,22 @@ export default function Quiz() {
   };
 
   const renderQuiz = () => {
+    
     if (questionCount === 0) {
       return (
+        
         <div className='quiz-main'>
-        <img
-          className='background-image'
-          src={backgroundImage}
-        />
+          <div className='bananas'>
+      <p className='quiz-intro-paragraph'>Welcome to the CareerSquared Quiz!
+        After answering these questions we will provide you with 3 Career Recommendations. 
+        In your Dashboard you will be able to see Links and Resources to help you begin your journey.
+        Also make sure to check out the Schedule page to schedule a meeting with a professional in one of your three careers
+    </p>
+    </div>  
         <div className='quiz-tile'>
+          <div className='quiz-question'>
         {questions[questionCount].question}
+        </div>
         <button onClick={handleClick}>
           {questions[questionCount].answer_one}
         </button>
@@ -46,16 +56,13 @@ export default function Quiz() {
 
       )
     }
-
     else if (questionCount !== questions.length) {
       return (
         <div className='quiz-main'>
-          <img
-            className='background-image'
-            src={backgroundImage}
-          />
           <div className='quiz-tile'>
+          <div className='quiz-question'>
           {questions[questionCount].question}
+          </div>
           <button onClick={handleClick}>
             {questions[questionCount].answer_one}
           </button>
@@ -68,10 +75,6 @@ export default function Quiz() {
     } else {
       return (
         <div className='quiz-main'>
-          <img
-            className='background-image'
-            src={backgroundImage}
-          />
           <div className='quiz-tile'>
           <button onClick={handleFinalClick}>
             You're all set! Click here to go back to your dashboard and see the
@@ -85,15 +88,24 @@ export default function Quiz() {
 
   return (
     <>
+    <DropDownMenu />
+
       <img
         className='background-image'
         src={backgroundImage}
       />
-      {questions.length > 0 ? (
+      <img
+        className='Careersquared'
+        src={Careersquared}
+      />
+      
+    {questions.length > 0 ? (
         <div>{renderQuiz()}</div>
       ) : (
         <div>Questions not populated yet</div>
       )}
+      
+     
     </>
   );
 }
