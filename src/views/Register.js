@@ -6,6 +6,7 @@ import backgroundImage from '../assets/background-image.jpg';
 
 import '../styles/Register.scss'
 import DropDownMenu from '../components/DropDownMenu';
+import Careersquared from '../assets/Careersquared.svg';
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -104,6 +105,10 @@ export default function Register() {
       <img
         className='background-image'
         src={backgroundImage}
+      />
+      <img
+        className='Careersquared'
+        src={Careersquared}
       />
     </div>
   );
