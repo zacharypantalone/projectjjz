@@ -8,6 +8,7 @@ import backEndDev from '../assets/back-end-dev.png';
 import frontEndDev from '../assets/front-end-dev.png';
 import creativeCoder from '../assets/creative-coding.png';
 import DropDownMenu from '../components/DropDownMenu';
+import BookAppointmentButton from '../components/BookAppointmentButton';
 
 export default function Career() {
 
@@ -55,8 +56,10 @@ export default function Career() {
                 <a href={learning.link}>{learning.link}</a>
               ))}
             </div>
+            <BookAppointmentButton />
           </div>}
         </div>
+  
       </article>
       <img
         className='background-image'

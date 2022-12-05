@@ -7,6 +7,7 @@ import QuizNotTaken from '../components/QuizNotTaken';
 import '../styles/Dashboard.scss';
 import backgroundImage from '../assets/background-image.jpg';
 import DropDownMenu from '../components/DropDownMenu';
+import BookAppointmentButton from '../components/BookAppointmentButton';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const Dashboard = () => {
       <div className='dashboard'>
         <h1 className='dashboard-welcome'>Welcome {user}!</h1>
         {results.length > 0 ? <QuizResults /> : <QuizNotTaken />}
+        <BookAppointmentButton/>
       </div>
       <img
         className='background-image'
