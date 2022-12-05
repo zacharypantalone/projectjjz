@@ -8,6 +8,7 @@ import FormField from './components/FormField';
 import DropDownMenu from './components/DropDownMenu';
 import Logo from './assets/Logo.svg';
 import backgroundImage from './assets/background-image.jpg';
+import Careersquared from './assets/Careersquared.svg';
 
 
 function App() {
@@ -67,6 +68,10 @@ function App() {
       <img
         className='background-image'
         src={backgroundImage}
+      />
+      <img
+        className='Careersquared'
+        src={Careersquared}
       />
       <article className='landing-page-container'>
 
