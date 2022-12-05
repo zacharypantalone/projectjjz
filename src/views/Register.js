@@ -5,6 +5,7 @@ import FormField from '../components/FormField';
 import backgroundImage from '../assets/background-image.jpg';
 
 import '../styles/Register.scss'
+import DropDownMenu from '../components/DropDownMenu';
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -79,9 +80,11 @@ export default function Register() {
 
   return (
     <div id='Register-page'>
+      <DropDownMenu />
       <div className='register-page-container'>
       <h1>New here? Register!</h1>
       <form className='register-form'>
+        
         {formFields.map(field => {
           return (
             <FormField

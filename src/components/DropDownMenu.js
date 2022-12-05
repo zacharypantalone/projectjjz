@@ -4,7 +4,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import '../styles/DropDownMenu.scss'
 import menu from '../assets/menu.png';
-import Career from '../views/Career';
 import Logout from './Logout';
 
 
@@ -31,13 +30,12 @@ const DropDownMenu = () => {
 
       <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`}>
         <div>
-          <h3 onClick={() => navigate('/dashboard')} className='drop-down-item'>dashboard</h3>
-          <h3 onClick={() => navigate('/')} className='drop-down-item'>FAQ</h3>
+          <h3 onClick={() => navigate('/dashboard')} className='drop-down-item'>Dashboard</h3>
+          <h3 onClick={() => navigate('/schedule')} className='drop-down-item'>Schedule</h3>
           <h3 onClick={() => navigate('/')} className='drop-down-item'>About</h3>
           <h3 className='drop-down-item'><Logout /></h3>
         </div>
       </div>
-
     </div>
   );
 }

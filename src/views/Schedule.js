@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import '../styles/schedule.scss';
 import backgroundImage from '../assets/background-image.jpg';
+import DropDownMenu from '../components/DropDownMenu';
 
 import { MentorTile } from '../components/MentorCard';
 import { CareerButton } from '../components/CareerButton';
@@ -86,6 +87,7 @@ export default function Schedule() {
 
   return (
     <div id='schedule'>
+      <DropDownMenu />
       <h1>Schedule</h1>
       <img
         className='background-image'
@@ -112,14 +114,14 @@ export default function Schedule() {
         <section className='mentor-list'>
           {filteredMentors.length > 0
             ? filteredMentors.map(result => {
-                return (
-                  <MentorTile
-                    key={result.id}
-                    handleClick={mentorClick}
-                    result={result}
-                  />
-                );
-              })
+              return (
+                <MentorTile
+                  key={result.id}
+                  handleClick={mentorClick}
+                  result={result}
+                />
+              );
+            })
             : ''}
         </section>
       </section>

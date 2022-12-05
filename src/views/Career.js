@@ -8,6 +8,7 @@ import backEndDev from '../assets/back-end-dev.png';
 import frontEndDev from '../assets/front-end-dev.png';
 import creativeCoder from '../assets/creative-coding.png';
 import DropDownMenu from '../components/DropDownMenu';
+import BookAppointmentButton from '../components/BookAppointmentButton';
 
 export default function Career() {
 
@@ -33,7 +34,7 @@ export default function Career() {
           {Object.keys(career).length !== 0 && <div>
             <div className='career-image-title'>
               <img src={jobImages[jobId - 1]} alt="img" width={325} />
-              <h1>{career.job.title}</h1>
+              <h2 className='career-title'>{career.job.title}</h2>
             </div>
             <h4 >{career.job.body}</h4>
 
@@ -55,8 +56,10 @@ export default function Career() {
                 <a href={learning.link}>{learning.link}</a>
               ))}
             </div>
+            <BookAppointmentButton />
           </div>}
         </div>
+  
       </article>
       <img
         className='background-image'

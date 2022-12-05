@@ -2,17 +2,20 @@
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 
 .dropdown-menu {
   padding: 15px;
   background-color: rgba(178,178,177,0.3);
-  cursor: pointer
+  cursor: pointer;
+  border-radius: 14px;
+  margin-right: 10px;
 }
 
 .drop-down-item {
 display: flex;
-
+border-bottom: 2px solid white;
 }
 
 .dropdown-menu.active {
@@ -25,4 +28,4 @@ display: flex;
   opacity: 0;
   transition: .5s ease;
 visibility: hidden;
-}
+}  
