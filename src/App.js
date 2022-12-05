@@ -31,6 +31,7 @@ function App() {
     const currentUser = {
       user,
     };
+    
     axios
       .post('/login', currentUser)
       .then(res => {
@@ -116,7 +117,6 @@ function App() {
             </button>
           </div>
         </form>
-
         <div className='facts-container'>
           <p className='fact'>The average person changes their career 7 times in their lifetime</p>
           <p className='fact'>70% of the workforce is actively looking for a change in career.</p>
