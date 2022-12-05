@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import backgroundImage from '../assets/background-image.jpg';
+import DropDownMenu from '../components/DropDownMenu';
 import '../styles/Quiz.scss';
+
 
 export default function Quiz() {
   const [questions, setQuestions] = useState([]);
@@ -32,10 +34,7 @@ export default function Quiz() {
     if (questionCount === 0) {
       return (
         <div className='quiz-main'>
-        <img
-          className='background-image'
-          src={backgroundImage}
-        />
+
         <div className='quiz-tile'>
         {questions[questionCount].question}
         <button onClick={handleClick}>
@@ -46,14 +45,9 @@ export default function Quiz() {
 
       )
     }
-
     else if (questionCount !== questions.length) {
       return (
         <div className='quiz-main'>
-          <img
-            className='background-image'
-            src={backgroundImage}
-          />
           <div className='quiz-tile'>
           {questions[questionCount].question}
           <button onClick={handleClick}>
@@ -68,10 +62,6 @@ export default function Quiz() {
     } else {
       return (
         <div className='quiz-main'>
-          <img
-            className='background-image'
-            src={backgroundImage}
-          />
           <div className='quiz-tile'>
           <button onClick={handleFinalClick}>
             You're all set! Click here to go back to your dashboard and see the
@@ -85,6 +75,7 @@ export default function Quiz() {
 
   return (
     <>
+    <DropDownMenu />
       <img
         className='background-image'
         src={backgroundImage}
