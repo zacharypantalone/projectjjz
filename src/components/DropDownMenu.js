@@ -4,7 +4,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import '../styles/DropDownMenu.scss'
 import menu from '../assets/menu.png';
-import Career from '../views/Career';
 import Logout from './Logout';
 
 

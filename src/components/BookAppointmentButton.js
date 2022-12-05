@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
+import '../styles/BookAppointment.scss';
 
 const BookAppointmentButton = () => {
   const navigate = useNavigate();
