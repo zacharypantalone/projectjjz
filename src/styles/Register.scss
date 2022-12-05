@@ -1,0 +1,16 @@
+.register-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  background-color: rgba(178,178,177,0.3);
+  margin-top: 10%;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 125px;
+  align-items: center;
+}

@@ -1,0 +1,60 @@
+.career-component {
+  display: flex;
+  justify-content: center;
+}
+
+.career-info-container{
+  color: white;
+  text-align: center;
+  width: 1000px;
+  background-color: #566655;
+  margin-top: 6em;
+  margin-bottom: 6em;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: center;
+ padding-bottom: 50px;
+ background-color: rgba(178,178,177,0.3);
+  
+}
+.career-image-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.career-title {
+  font-size: 40px;
+}
+
+.career-info {
+  margin-top: 8px;
+  width: 800px;
+ 
+}
+
+.career-info-breakdown {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 8px;
+  justify-content: center;
+}
+
+.bold-title {
+ margin-right: 7px;
+}
+
+.career-body {
+  height: 280px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+} 
+
+a:link { color: white; }
+
+a:link:hover {
+  color: purple
+}

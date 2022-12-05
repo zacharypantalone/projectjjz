@@ -1,0 +1,39 @@
+.dashboard {
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 40px;
+}
+
+.dashboard-welcome {
+  font-size: 40px;
+  width: 100%;
+  top: 90px;
+}
+// .background-image {
+//   z-index: -1;
+//   min-height: 100%;
+//   min-width: 1440px;
+//   width: 100%;
+//   height: auto;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+// }
+
+// .Logo {
+//   z-index: 1;
+//   opacity: 60%;
+//   position: relative;
+//   top: 25%;
+//   height: 400px;
+//   width: 400px;
+//   right: auto;
+// }
+
+.dashboard > h1 {
+  color: white;
+}
+
+.dashboard > h3 {
+  color: white;
+}
