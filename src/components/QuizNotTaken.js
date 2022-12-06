@@ -14,13 +14,13 @@ const QuizNotTaken = () => {
     <div>
       <div className='testimonials-container'>
         <h4 className='testimonial'>
-          "I didn't know where to start, I just knew I needed a big change. A friend recommmended Career-Squared which ended up being the push I needed! - Susan Smith"
+          "I didn't know where to start, I just knew I needed a big change. A friend recommmended Careersquared which ended up being the push I needed!" -SH 
         </h4>
         <h4 className='testimonial'>
-          "This app is the perfect first step to get the ball rolling on your new future" - Ricky Bobby
+          "This app is the perfect first step to get the ball rolling on your new future" -RB
         </h4>
         <h4 className='testimonial'>
-          "Since discovering Career-Squared, I've doubled my annual salary and I no longer dred going to work in the morning" - Scooby Doo
+          "Since discovering Careersquared, I've doubled my annual salary and I no longer dred going to work in the morning" -SD
         </h4>
       </div>
       <h2 className='take-quiz-prompt'>
